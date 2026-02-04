@@ -2083,35 +2083,28 @@ bridge castle garden sunset dream</div>
 
             <h3>4.1 Swap ETH → USDC sur Arbitrum</h3>
 
-            <div class="step">
-                <span class="step-number">1</span>
-                <div class="step-content">
-                    <h4>Ouvrir un DEX pour le swap</h4>
-                    <p>Va sur <a href="https://app.uniswap.org/swap" target="_blank" style="color: var(--accent-primary); font-weight: bold;">Uniswap</a> (ou un autre DEX comme 1inch, Sushiswap...)</p>
+            <div class="comparison-grid">
+                <div class="comparison-card highlighted">
+                    <h4>🦊 Méthode simple : Swap dans MetaMask</h4>
+                    <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-bottom: 1rem;">Recommandé pour les débutants</p>
+                    <ol style="margin: 0; padding-left: 1.25rem;">
+                        <li>Ouvre <strong>MetaMask</strong> (extension navigateur)</li>
+                        <li>Clique sur <strong>"Swap"</strong> (bouton au centre)</li>
+                        <li>De : <strong>ETH</strong> → Vers : <strong>USDC</strong></li>
+                        <li>Montant : <strong>tout sauf ~5$ d'ETH</strong></li>
+                        <li>Clique "Swap" → Confirme</li>
+                    </ol>
                 </div>
-            </div>
-
-            <div class="step">
-                <span class="step-number">2</span>
-                <div class="step-content">
-                    <h4>Connecter MetaMask</h4>
-                    <p>Clique "Connect Wallet" → MetaMask → Vérifie que tu es sur le réseau <strong>Arbitrum</strong></p>
-                </div>
-            </div>
-
-            <div class="step">
-                <span class="step-number">3</span>
-                <div class="step-content">
-                    <h4>Configurer le swap</h4>
-                    <p>De : <strong>ETH</strong> → Vers : <strong>USDC</strong> → Montant : <strong>tout sauf ~5$ d'ETH</strong></p>
-                </div>
-            </div>
-
-            <div class="step">
-                <span class="step-number">4</span>
-                <div class="step-content">
-                    <h4>Confirmer le swap</h4>
-                    <p>Clique "Swap" → Vérifie les détails → Confirme dans MetaMask</p>
+                <div class="comparison-card">
+                    <h4>🔄 Méthode avancée : DEX externe</h4>
+                    <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-bottom: 1rem;">Pour utilisateurs expérimentés</p>
+                    <ol style="margin: 0; padding-left: 1.25rem;">
+                        <li>Va sur <a href="https://app.uniswap.org/swap" target="_blank" style="color: var(--accent-primary);">Uniswap</a>, 1inch, ou Sushiswap</li>
+                        <li>Connecte ton wallet MetaMask</li>
+                        <li>Vérifie que tu es sur <strong>Arbitrum</strong></li>
+                        <li>Configure le swap ETH → USDC</li>
+                        <li>Confirme la transaction</li>
+                    </ol>
                 </div>
             </div>
 
@@ -2170,8 +2163,8 @@ bridge castle garden sunset dream</div>
                     </div>
                     <span class="diagram-arrow">→</span>
                     <div class="diagram-box">
-                        <div>🔄 Uniswap</div>
-                        <div class="diagram-label">Swap ETH → USDC</div>
+                        <div>🦊 Swap MetaMask</div>
+                        <div class="diagram-label">ETH → USDC</div>
                     </div>
                     <span class="diagram-arrow">→</span>
                     <div class="diagram-box highlight">
@@ -2402,7 +2395,7 @@ bridge castle garden sunset dream</div>
                     Tu peux payer en crypto <strong>avant la fin du cycle de facturation</strong> via : <strong>Facturation → Payer maintenant → Crypto monnaie</strong><br><br>
                     <strong>⚠️ Attention :</strong> On accepte uniquement les paiements sur le <strong>réseau Solana</strong> (SOL, USDC, USDT).<br>
                     Si tu as des USDC sur Arbitrum, tu dois les <strong>bridge vers Solana</strong> d'abord.<br>
-                    👉 Utilise <a href="https://jumper.exchange/fr" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: underline;">jumper.exchange</a> pour transférer tes tokens d'Arbitrum vers Solana.
+                    👉 <a href="https://jumper.exchange/fr?fromChain=42161&fromToken=0xaf88d065e77c8cC2239327C5EDb3A432268e5831&toChain=1151111081099710&toToken=11111111111111111111111111111111" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: underline;"><strong>Clique ici pour bridge USDC (Arbitrum) → SOL (Solana)</strong></a> (lien pré-configuré)
                 </div>
             </div>
 

@@ -793,7 +793,10 @@
                 <a href="#etape3"><span class="toc-number">5</span> Connexion Lighter</a>
                 <a href="#etape4"><span class="toc-number">6</span> Authentification</a>
                 <a href="#etape5"><span class="toc-number">7</span> Déposer USDC</a>
+                <a href="#etape6"><span class="toc-number">8</span> Lier téléphone</a>
                 <a href="#checklist"><span class="toc-number">✓</span> Checklist finale</a>
+                <a href="#couts"><span class="toc-number">💰</span> Coûts</a>
+                <a href="#lighter-info"><span class="toc-number">ℹ️</span> Infos Lighter</a>
             </div>
         </div>
 
@@ -1267,6 +1270,48 @@ bridge castle garden sunset dream</div>
             </div>
         </section>
 
+        <!-- Étape 6 -->
+        <section class="section" id="etape6">
+            <h2>Étape 6 — Lier ton téléphone (optionnel)</h2>
+            <p>L'application mobile Lighter te permet de suivre tes positions depuis ton téléphone.</p>
+
+            <div class="alert alert-warning">
+                <span class="alert-icon">⚠️</span>
+                <div><strong>Rappel :</strong> La première connexion doit se faire sur <strong>ordinateur</strong>. Tu ne peux pas créer ton compte depuis l'app mobile directement.</div>
+            </div>
+
+            <h3>6.1 Sur ton ordinateur</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-content">
+                    <h4>Générer le QR code</h4>
+                    <p>Connecte-toi à Lighter → Clique sur ton profil (haut à droite) → <strong>"Link Mobile Device"</strong> → Un QR code s'affiche</p>
+                </div>
+            </div>
+
+            <h3>6.2 Sur ton téléphone</h3>
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-content">
+                    <h4>Scanner le QR code</h4>
+                    <p>Télécharge l'app <strong>Lighter</strong> (App Store / Google Play) → Ouvre l'app → Scanne le QR code affiché sur ton ordinateur</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">📱</div>
+                    <span class="card-title">Fonctionnalités mobile</span>
+                </div>
+                <ul class="list list-check">
+                    <li>Voir tes positions en temps réel</li>
+                    <li>Suivre tes PnL</li>
+                    <li>Recevoir des notifications</li>
+                </ul>
+                <p style="margin-top: 1rem; color: var(--text-tertiary); font-size: 0.9rem;">💡 L'app mobile est en lecture seule par défaut. Certaines actions (retraits importants) peuvent nécessiter une confirmation sur ordinateur.</p>
+            </div>
+        </section>
+
         <!-- Checklist -->
         <section class="section" id="checklist">
             <h2>📋 Checklist finale</h2>
@@ -1289,6 +1334,7 @@ bridge castle garden sunset dream</div>
 
                 <h3 style="margin-top: 1.5rem;">Bonus</h3>
                 <div class="checklist-item"><span class="checkbox"></span> Crédit 20$ réclamé (@botlyz_manager)</div>
+                <div class="checklist-item"><span class="checkbox"></span> (Optionnel) Téléphone lié via "Link Mobile Device"</div>
             </div>
         </section>
 
@@ -1318,7 +1364,149 @@ bridge castle garden sunset dream</div>
                         <td>USDC non reçus</td>
                         <td>Attendre jusqu'à 60 min, vérifier sur <a href="https://basescan.org" target="_blank" style="color: var(--accent-primary);">basescan.org</a></td>
                     </tr>
+                    <tr>
+                        <td>Retrait de l'exchange bloqué</td>
+                        <td>Vérifier le statut dans l'historique de retraits de l'exchange</td>
+                    </tr>
+                    <tr>
+                        <td>Fonds sur Funding au lieu de Spot</td>
+                        <td>Transférer de Funding → Spot avant de retirer</td>
+                    </tr>
+                    <tr>
+                        <td>"multi-sig" coché par erreur</td>
+                        <td>Déconnecter le wallet, rafraîchir la page, recommencer</td>
+                    </tr>
+                    <tr>
+                        <td>Dépôt confirmé mais pas de solde</td>
+                        <td>Attendre quelques minutes, rafraîchir la page Lighter</td>
+                    </tr>
                 </table>
+            </div>
+
+            <h3>Comment vérifier une transaction</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-content">
+                    <h4>Aller sur Basescan</h4>
+                    <p>Va sur <a href="https://basescan.org" target="_blank" style="color: var(--accent-primary);">basescan.org</a></p>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-content">
+                    <h4>Rechercher</h4>
+                    <p>Colle ton adresse <code>0x...</code> ou le hash de transaction</p>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-number">3</span>
+                <div class="step-content">
+                    <h4>Vérifier le statut</h4>
+                    <p><strong>Success</strong> = Transaction réussie — <strong>Pending</strong> = En cours — <strong>Failed</strong> = Échec</p>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+                <div class="card-header">
+                    <div class="card-icon">💬</div>
+                    <span class="card-title">Besoin d'aide ?</span>
+                </div>
+                <ul class="list">
+                    <li><strong>Support Botlyz :</strong> <a href="https://t.me/botlyz_manager" target="_blank" style="color: var(--accent-primary);">@botlyz_manager</a> sur Telegram</li>
+                    <li><strong>Documentation Lighter :</strong> <a href="https://docs.lighter.xyz" target="_blank" style="color: var(--accent-primary);">docs.lighter.xyz</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Récapitulatif des coûts -->
+        <section class="section" id="couts">
+            <h2>💰 Récapitulatif des coûts</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <tr>
+                        <th>Étape</th>
+                        <th>Cas 1 (Exchange)</th>
+                        <th>Cas 2 (Carte via Phantom)</th>
+                    </tr>
+                    <tr>
+                        <td>Installer Phantom</td>
+                        <td>Gratuit</td>
+                        <td>Gratuit</td>
+                    </tr>
+                    <tr>
+                        <td>Acheter 100 USDC</td>
+                        <td>Frais exchange (~0.1-1%)</td>
+                        <td>0-4.50$ de frais</td>
+                    </tr>
+                    <tr>
+                        <td>Acheter 5$ ETH</td>
+                        <td>Frais exchange (~0.1-1%)</td>
+                        <td>0-0.25$ de frais</td>
+                    </tr>
+                    <tr>
+                        <td>Retrait vers Phantom</td>
+                        <td>Frais retrait (~0.1-1 USDC)</td>
+                        <td>— (déjà dans Phantom)</td>
+                    </tr>
+                    <tr>
+                        <td>Dépôt sur Lighter</td>
+                        <td>~0.01$ gas</td>
+                        <td>~0.01$ gas</td>
+                    </tr>
+                    <tr style="background: var(--bg-tertiary); font-weight: 600;">
+                        <td>Total estimé</td>
+                        <td>~106-108$</td>
+                        <td>~105-110$</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Infos Lighter -->
+        <section class="section" id="lighter-info">
+            <h2>ℹ️ Informations Lighter DEX</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <tr>
+                        <th>Caractéristique</th>
+                        <th>Détail</th>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>DEX perpétuel (carnet d'ordres on-chain, ZK-rollup)</td>
+                    </tr>
+                    <tr>
+                        <td>Frais de trading</td>
+                        <td><strong>0% maker / 0% taker</strong> (compte standard)</td>
+                    </tr>
+                    <tr>
+                        <td>Levier maximum</td>
+                        <td>Jusqu'à <strong>50x</strong> sur BTC/ETH</td>
+                    </tr>
+                    <tr>
+                        <td>KYC requis</td>
+                        <td>Non</td>
+                    </tr>
+                    <tr>
+                        <td>Sécurité</td>
+                        <td>Non-custodial + escape hatch</td>
+                    </tr>
+                    <tr>
+                        <td>App mobile</td>
+                        <td>Disponible (iOS/Android), première connexion sur PC obligatoire</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+                <div class="card-header">
+                    <div class="card-icon">🛡️</div>
+                    <span class="card-title">Qu'est-ce que l'escape hatch ?</span>
+                </div>
+                <p>C'est une fonction de sécurité unique : même si l'interface de Lighter (le site web) tombe en panne ou est censuré, tu peux toujours retirer tes fonds directement depuis la blockchain en interagissant avec le smart contract.</p>
+                <p style="margin-top: 0.5rem;"><strong>Tes fonds ne sont jamais "bloqués".</strong></p>
             </div>
         </section>
 
@@ -1339,12 +1527,24 @@ bridge castle garden sunset dream</div>
                 <div class="glossary-def">Decentralized Exchange — Plateforme d'échange gérée par des smart contracts (ex: Lighter)</div>
             </div>
             <div class="glossary-item">
+                <div class="glossary-term">ETH</div>
+                <div class="glossary-def">Ether — La crypto native d'Ethereum, utilisée pour payer les frais de transaction</div>
+            </div>
+            <div class="glossary-item">
                 <div class="glossary-term">Gas</div>
                 <div class="glossary-def">Frais payés pour exécuter une transaction sur la blockchain</div>
             </div>
             <div class="glossary-item">
+                <div class="glossary-term">KYC</div>
+                <div class="glossary-def">Know Your Customer — Vérification d'identité obligatoire sur les plateformes régulées</div>
+            </div>
+            <div class="glossary-item">
                 <div class="glossary-term">Layer 2 (L2)</div>
                 <div class="glossary-def">Réseau construit au-dessus d'Ethereum pour des transactions plus rapides et moins chères</div>
+            </div>
+            <div class="glossary-item">
+                <div class="glossary-term">Perps</div>
+                <div class="glossary-def">Perpetuals — Contrats dérivés sans date d'expiration, permettant le trading avec levier</div>
             </div>
             <div class="glossary-item">
                 <div class="glossary-term">Seed Phrase</div>
@@ -1357,6 +1557,10 @@ bridge castle garden sunset dream</div>
             <div class="glossary-item">
                 <div class="glossary-term">Stablecoin</div>
                 <div class="glossary-def">Crypto dont la valeur est stable (1 USDC ≈ 1$)</div>
+            </div>
+            <div class="glossary-item">
+                <div class="glossary-term">USDC</div>
+                <div class="glossary-def">USD Coin — Stablecoin émis par Circle, adossé au dollar américain</div>
             </div>
             <div class="glossary-item">
                 <div class="glossary-term">Wallet</div>

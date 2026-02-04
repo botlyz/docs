@@ -114,6 +114,57 @@
             color: var(--text-primary);
         }
 
+        /* Nav progress indicator (mobile only) */
+        .nav-progress {
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .nav-progress.visible {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+
+        .nav-progress-percent {
+            font-size: 0.9rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            min-width: 32px;
+        }
+
+        .nav-progress-bar {
+            width: 40px;
+            height: 4px;
+            background: var(--bg-tertiary);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .nav-progress-fill {
+            height: 100%;
+            background: var(--accent-gradient);
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        .nav-progress-title {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            max-width: 120px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
         /* Transitions - Apple-like easing (from botlyz.com) */
         .btn {
             display: inline-flex;
@@ -926,6 +977,10 @@
                 display: none;
             }
 
+            .nav-progress {
+                display: flex;
+            }
+
             .nav-content {
                 height: 60px;
                 padding: 0 1rem;
@@ -1385,86 +1440,10 @@
             background: var(--success);
         }
 
-        /* Mobile progress bar - appears at TOP when scrolling down */
-        .progress-mobile {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: var(--bg-card);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            transform: translateY(-100%);
-            transition: transform 0.3s ease;
-        }
-
-        .progress-mobile.visible {
-            transform: translateY(0);
-        }
-
-        .progress-mobile-bar-top {
-            height: 3px;
-            background: var(--bg-tertiary);
-            width: 100%;
-        }
-
-        .progress-mobile-bar-fill-top {
-            height: 100%;
-            background: var(--accent-gradient);
-            transition: width 0.3s ease;
-        }
-
-        .progress-mobile-content {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.6rem 1rem;
-        }
-
-        .progress-mobile-percentage {
-            font-size: 1rem;
-            font-weight: 700;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            min-width: 40px;
-        }
-
-        .progress-mobile-title {
-            flex: 1;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .progress-mobile-title span {
-            color: var(--accent-primary);
-            font-weight: 500;
-        }
-
-        /* Hide desktop sidebar on mobile, show mobile bar */
+        /* Hide desktop sidebar on mobile */
         @media (max-width: 1200px) {
             .progress-sidebar {
                 display: none;
-            }
-            .progress-mobile {
-                display: block;
-            }
-        }
-
-        /* Hide TOC when progress bar is visible on mobile */
-        @media (max-width: 768px) {
-            .toc.hidden-by-progress {
-                opacity: 0;
-                transform: translateY(-20px);
-                pointer-events: none;
-            }
-            .toc {
-                transition: opacity 0.3s ease, transform 0.3s ease;
             }
         }
     </style>
@@ -1481,6 +1460,14 @@
                 <a href="https://botlyz.com">Site principal</a>
                 <a href="#toc">Sommaire</a>
                 <a href="https://t.me/BotlyzBot" target="_blank" class="btn btn-primary btn-small">Essayer gratuitement</a>
+            </div>
+            <!-- Mobile progress indicator (inside navbar) -->
+            <div class="nav-progress" id="navProgress">
+                <span class="nav-progress-percent" id="navProgressPercent">0%</span>
+                <div class="nav-progress-bar">
+                    <div class="nav-progress-fill" id="navProgressFill"></div>
+                </div>
+                <span class="nav-progress-title" id="navProgressTitle">Comprendre</span>
             </div>
         </div>
     </nav>
@@ -3122,19 +3109,6 @@ bridge castle garden sunset dream</div>
         </nav>
     </aside>
 
-    <!-- Mobile Progress Bar (appears at top when scrolling down) -->
-    <div class="progress-mobile" id="progressMobile">
-        <div class="progress-mobile-bar-top">
-            <div class="progress-mobile-bar-fill-top" id="progressBarFillMobile" style="width: 0%"></div>
-        </div>
-        <div class="progress-mobile-content">
-            <span class="progress-mobile-percentage" id="progressPercentMobile">0%</span>
-            <div class="progress-mobile-title" id="progressTitleMobile">
-                <span>Comprendre</span>
-            </div>
-        </div>
-    </div>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-links">
@@ -3221,16 +3195,15 @@ bridge castle garden sunset dream</div>
         const progressBarFill = document.getElementById('progressBarFill');
         const sectionItems = document.querySelectorAll('.progress-section-item');
 
-        // Mobile elements
-        const progressPercentMobile = document.getElementById('progressPercentMobile');
-        const progressBarFillMobile = document.getElementById('progressBarFillMobile');
-        const progressTitleMobile = document.getElementById('progressTitleMobile');
-        const progressMobile = document.getElementById('progressMobile');
-        const toc = document.querySelector('.toc');
+        // Nav progress elements (mobile - integrated in navbar)
+        const navProgress = document.getElementById('navProgress');
+        const navProgressPercent = document.getElementById('navProgressPercent');
+        const navProgressFill = document.getElementById('navProgressFill');
+        const navProgressTitle = document.getElementById('navProgressTitle');
 
         // Track scroll direction
         let lastScrollTop = 0;
-        let scrollThreshold = 100; // Show mobile bar after scrolling this much
+        let scrollThreshold = 150; // Show nav progress after scrolling this much
 
         // Calculate scroll progress and update active section
         function updateProgress() {
@@ -3238,11 +3211,13 @@ bridge castle garden sunset dream</div>
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
             const scrollPercent = Math.min(Math.round((scrollTop / docHeight) * 100), 100);
 
-            // Update percentage display (desktop + mobile)
+            // Update percentage display (desktop)
             progressPercent.textContent = scrollPercent + '%';
             progressBarFill.style.width = scrollPercent + '%';
-            progressPercentMobile.textContent = scrollPercent + '%';
-            progressBarFillMobile.style.width = scrollPercent + '%';
+
+            // Update nav progress (mobile)
+            if (navProgressPercent) navProgressPercent.textContent = scrollPercent + '%';
+            if (navProgressFill) navProgressFill.style.width = scrollPercent + '%';
 
             // Find active section
             let activeSection = null;
@@ -3260,9 +3235,9 @@ bridge castle garden sunset dream</div>
                 }
             }
 
-            // Update mobile title
-            if (activeSection) {
-                progressTitleMobile.innerHTML = '<span>' + activeSection.title + '</span>';
+            // Update nav progress title (mobile)
+            if (activeSection && navProgressTitle) {
+                navProgressTitle.textContent = activeSection.title;
             }
 
             // Update section items (desktop)
@@ -3280,16 +3255,15 @@ bridge castle garden sunset dream</div>
                 }
             });
 
-            // Show/hide mobile progress bar based on scroll direction
-            const scrollingDown = scrollTop > lastScrollTop;
+            // Show/hide nav progress based on scroll position
             const pastThreshold = scrollTop > scrollThreshold;
 
-            if (pastThreshold && scrollingDown) {
-                progressMobile.classList.add('visible');
-                if (toc) toc.classList.add('hidden-by-progress');
-            } else if (!scrollingDown || scrollTop < 50) {
-                progressMobile.classList.remove('visible');
-                if (toc) toc.classList.remove('hidden-by-progress');
+            if (navProgress) {
+                if (pastThreshold) {
+                    navProgress.classList.add('visible');
+                } else {
+                    navProgress.classList.remove('visible');
+                }
             }
 
             lastScrollTop = scrollTop;

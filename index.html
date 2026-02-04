@@ -652,22 +652,313 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive */
+        /* Responsive - Tablet */
+        @media (max-width: 1024px) {
+            .container {
+                max-width: 100%;
+                padding: 0 1rem;
+            }
+
+            .toc-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Responsive - Mobile */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
 
-            .step {
-                flex-direction: column;
+            .nav-content {
+                height: 60px;
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            .logo img {
+                width: 32px;
+                height: 32px;
+            }
+
+            .hero {
+                padding: 100px 1rem 50px;
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.75rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-badges {
+                gap: 0.5rem;
+            }
+
+            .badge {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.8rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .toc {
+                padding: 1.25rem;
+                margin-bottom: 2rem;
+            }
+
+            .toc h2 {
+                font-size: 1.1rem;
+            }
+
+            .toc-grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .toc a {
+                padding: 0.6rem 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            .toc-number {
+                width: 24px;
+                height: 24px;
+                font-size: 0.75rem;
+            }
+
+            .referral-box {
+                padding: 1.25rem;
+            }
+
+            .referral-box h3 {
+                font-size: 1.2rem;
+            }
+
+            .referral-link {
+                padding: 0.75rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .section {
+                padding: 2rem 0;
             }
 
             .section h2 {
+                font-size: 1.35rem;
+                flex-wrap: wrap;
+            }
+
+            .section h3 {
+                font-size: 1.2rem;
+            }
+
+            .section h4 {
+                font-size: 1.05rem;
+            }
+
+            .card {
+                padding: 1.25rem;
+                margin: 1rem 0;
+            }
+
+            .card-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 1.1rem;
+            }
+
+            .card-title {
+                font-size: 1rem;
+            }
+
+            .comparison-card {
+                padding: 1.25rem;
+            }
+
+            .comparison-card h4 {
+                font-size: 1.1rem;
+            }
+
+            .step {
+                flex-direction: column;
+                padding: 1.25rem;
+                gap: 1rem;
+            }
+
+            .step-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+
+            .step-content h4 {
+                font-size: 1rem;
+            }
+
+            .alert {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .alert-icon {
+                font-size: 1.25rem;
+            }
+
+            .code-block {
+                padding: 1rem;
+                font-size: 0.8rem;
+            }
+
+            /* Tables - Critical for mobile */
+            .table-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin: 1rem -1rem;
+                padding: 0 1rem;
+                position: relative;
+            }
+
+            .table-wrapper::after {
+                content: '← Glisse pour voir plus →';
+                display: block;
+                text-align: center;
+                font-size: 0.75rem;
+                color: var(--text-tertiary);
+                padding: 0.5rem 0;
+                opacity: 0.7;
+            }
+
+            table {
+                min-width: 500px;
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.5rem;
+                white-space: nowrap;
+            }
+
+            th:first-child, td:first-child {
+                position: sticky;
+                left: 0;
+                background: var(--bg-tertiary);
+                z-index: 1;
+            }
+
+            td:first-child {
+                background: var(--bg-card);
+            }
+
+            .checklist {
+                padding: 1.25rem;
+            }
+
+            .checklist h3 {
+                font-size: 1.1rem;
+            }
+
+            .checklist-item {
+                padding: 0.6rem 0;
+                font-size: 0.9rem;
+            }
+
+            .checkbox {
+                width: 20px;
+                height: 20px;
+            }
+
+            .glossary-item {
+                padding: 0.75rem 0;
+            }
+
+            .glossary-term {
+                font-size: 0.95rem;
+            }
+
+            .glossary-def {
+                font-size: 0.85rem;
+            }
+
+            .footer {
+                padding: 2rem 1rem;
+            }
+
+            .footer-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .diagram {
+                padding: 1.25rem;
+            }
+
+            .diagram-flow {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .diagram-box {
+                padding: 0.75rem 1rem;
+                width: 100%;
+            }
+
+            .diagram-arrow {
+                transform: rotate(90deg);
+                font-size: 1.25rem;
+            }
+
+            .scroll-top {
+                width: 44px;
+                height: 44px;
+                bottom: 1.5rem;
+                right: 1rem;
+                font-size: 1.25rem;
+            }
+
+            .list li {
+                font-size: 0.9rem;
+            }
+
+            .btn {
+                padding: 0.6rem 1.25rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Responsive - Small phones */
+        @media (max-width: 380px) {
+            .hero h1 {
                 font-size: 1.5rem;
+            }
+
+            .section h2 {
+                font-size: 1.2rem;
+            }
+
+            .badge {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.5rem;
+            }
+
+            table {
+                font-size: 0.75rem;
+            }
+
+            th, td {
+                padding: 0.5rem 0.4rem;
             }
         }
 

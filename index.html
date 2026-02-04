@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guide complet pour démarrer sur Lighter DEX avec Botlyz - De la carte bancaire au trading automatisé">
+    <title>Guide Lighter DEX | Botlyz Documentation</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://botlyz.github.io/docs/">
+    <meta property="og:title" content="Guide Lighter DEX - Botlyz">
+    <meta property="og:description" content="Guide complet pour démarrer sur Lighter DEX avec Botlyz">
+    <meta property="og:image" content="https://botlyz.com/logo_with_font.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://botlyz.com/favicon.ico">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #0a0b0d;
+            --bg-secondary: #111215;
+            --bg-tertiary: #1a1c20;
+            --bg-card: #16181c;
+            --accent-primary: #00d4ff;
+            --accent-secondary: #0099ff;
+            --accent-gradient: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a8;
+            --text-tertiary: #6b6b73;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 11, 13, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: var(--bg-primary);
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 140px 1.5rem 80px;
+            text-align: center;
+            background: radial-gradient(ellipse at top, rgba(0, 212, 255, 0.1) 0%, transparent 60%);
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .badge-icon {
+            font-size: 1.1rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* TOC */
+        .toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .toc h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-primary);
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .toc a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .toc a:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            transform: translateX(5px);
+        }
+
+        .toc-number {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-gradient);
+            color: var(--bg-primary);
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        /* Referral Box */
+        .referral-box {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 255, 0.1) 100%);
+            border: 1px solid var(--accent-primary);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .referral-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .referral-link {
+            display: inline-block;
+            background: var(--bg-card);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: var(--accent-primary);
+            margin: 1rem 0;
+            word-break: break-all;
+        }
+
+        .referral-bonus {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--success);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Sections */
+        .section {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--accent-primary);
+        }
+
+        .section h4 {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 1rem;
+            color: var(--text-primary);
+        }
+
+        .section p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-gradient);
+            border-radius: 10px;
+            font-size: 1.25rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Comparison Table */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .comparison-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .comparison-card.highlighted {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .comparison-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+        }
+
+        .comparison-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .comparison-card li:last-child {
+            border-bottom: none;
+        }
+
+        .check {
+            color: var(--success);
+        }
+
+        .cross {
+            color: var(--danger);
+        }
+
+        /* Steps */
+        .step {
+            display: flex;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-gradient);
+            color: var(--bg-primary);
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .step-content h4 {
+            margin: 0 0 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .step-content p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+        /* Alerts */
+        .alert {
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .alert-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .alert-warning {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid var(--warning);
+        }
+
+        .alert-warning .alert-icon {
+            color: var(--warning);
+        }
+
+        .alert-danger {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid var(--danger);
+        }
+
+        .alert-danger .alert-icon {
+            color: var(--danger);
+        }
+
+        .alert-success {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid var(--success);
+        }
+
+        .alert-success .alert-icon {
+            color: var(--success);
+        }
+
+        .alert-info {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--accent-primary);
+        }
+
+        .alert-info .alert-icon {
+            color: var(--accent-primary);
+        }
+
+        /* Code blocks */
+        .code-block {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            white-space: pre;
+            color: var(--text-secondary);
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: var(--bg-tertiary);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        td {
+            color: var(--text-secondary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Lists */
+        .list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+        }
+
+        .list li::before {
+            content: "→";
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        .list-check li::before {
+            content: "✓";
+            color: var(--success);
+        }
+
+        .list-cross li::before {
+            content: "✗";
+            color: var(--danger);
+        }
+
+        /* Checklist */
+        .checklist {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .checklist h3 {
+            margin-top: 0;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        /* Glossary */
+        .glossary-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .glossary-term {
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .glossary-def {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        .footer p {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .step {
+                flex-direction: column;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Scroll to top */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-gradient);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--bg-primary);
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+            transition: transform 0.3s;
+            z-index: 999;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Diagram */
+        .diagram {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .diagram-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .diagram-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            text-align: center;
+        }
+
+        .diagram-box.highlight {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+
+        .diagram-arrow {
+            color: var(--accent-primary);
+            font-size: 1.5rem;
+        }
+
+        .diagram-label {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="https://botlyz.com" class="logo">
+                <img src="https://botlyz.com/logo.png" alt="Botlyz">
+                <span>Botlyz</span>
+            </a>
+            <div class="nav-links">
+                <a href="https://botlyz.com">Site principal</a>
+                <a href="#toc">Sommaire</a>
+                <a href="https://t.me/BotlyzBot" class="btn btn-primary">Démarrer →</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Guide <span class="gradient-text">Lighter DEX</span></h1>
+        <p>De la carte bancaire au trading automatisé — le guide complet pour les débutants</p>
+        <div class="hero-badges">
+            <span class="badge"><span class="badge-icon">⏱️</span> 30-60 min</span>
+            <span class="badge"><span class="badge-icon">💰</span> ~105$</span>
+            <span class="badge"><span class="badge-icon">⬛</span> Réseau Base</span>
+        </div>
+        <a href="https://app.lighter.xyz/?referral=7122767G" target="_blank" class="btn btn-primary">
+            S'inscrire sur Lighter →
+        </a>
+    </section>
+
+    <div class="container">
+        <!-- Referral Box -->
+        <div class="referral-box">
+            <h3>🎁 Lien d'inscription Lighter</h3>
+            <p>Utilise ce lien de parrainage pour créer ton compte :</p>
+            <a href="https://app.lighter.xyz/?referral=7122767G" target="_blank" class="referral-link">
+                app.lighter.xyz/?referral=7122767G
+            </a>
+            <br>
+            <span class="referral-bonus">✨ Bonus : 20$ de crédit Botlyz</span>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">Contacte <strong>@botlyz_manager</strong> pour le réclamer</p>
+        </div>
+
+        <!-- TOC -->
+        <div class="toc" id="toc">
+            <h2>📚 Sommaire</h2>
+            <div class="toc-grid">
+                <a href="#comprendre"><span class="toc-number">1</span> Comprendre les bases</a>
+                <a href="#avant"><span class="toc-number">2</span> Avant de commencer</a>
+                <a href="#etape1"><span class="toc-number">3</span> Installer Phantom</a>
+                <a href="#etape2"><span class="toc-number">4</span> Approvisionner</a>
+                <a href="#etape3"><span class="toc-number">5</span> Connexion Lighter</a>
+                <a href="#etape4"><span class="toc-number">6</span> Authentification</a>
+                <a href="#etape5"><span class="toc-number">7</span> Déposer USDC</a>
+                <a href="#checklist"><span class="toc-number">✓</span> Checklist finale</a>
+            </div>
+        </div>
+
+        <!-- Section 1: Comprendre -->
+        <section class="section" id="comprendre">
+            <h2>📖 Comprendre les bases</h2>
+            <p>Si tu viens d'un exchange classique (Binance, Bybit, XT.com...), tu vas découvrir un monde différent. Prends 5 minutes pour comprendre ces concepts.</p>
+
+            <h3>CEX vs DEX : quelle différence ?</h3>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h4>🏦 CEX (Exchange centralisé)</h4>
+                    <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-bottom: 1rem;">Binance, Bybit, XT.com...</p>
+                    <ul>
+                        <li><span class="cross">✗</span> Tu déposes chez eux</li>
+                        <li><span class="cross">✗</span> Ils détiennent tes crypto</li>
+                        <li><span class="cross">✗</span> Peuvent geler ton compte</li>
+                        <li><span class="cross">✗</span> KYC obligatoire</li>
+                        <li><span class="check">✓</span> Support client disponible</li>
+                    </ul>
+                </div>
+                <div class="comparison-card highlighted">
+                    <h4>🌐 DEX (Exchange décentralisé)</h4>
+                    <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-bottom: 1rem;">Lighter, dYdX, GMX...</p>
+                    <ul>
+                        <li><span class="check">✓</span> Tu gardes le contrôle</li>
+                        <li><span class="check">✓</span> Toi seul possèdes tes crypto</li>
+                        <li><span class="check">✓</span> Impossible de te bloquer</li>
+                        <li><span class="check">✓</span> Aucun KYC requis</li>
+                        <li><span class="cross">✗</span> Responsabilité totale</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="alert alert-warning">
+                <span class="alert-icon">⚠️</span>
+                <div>
+                    <strong>Le problème des CEX :</strong> Quand tes crypto sont sur un CEX, tu as une promesse qu'ils te les rendront. Mais si l'exchange fait faillite (FTX en 2022), se fait hacker, ou gèle ton compte... tu peux tout perdre.
+                    <br><br>
+                    <em>"Not your keys, not your coins"</em> — Pas tes clés, pas tes crypto.
+                </div>
+            </div>
+
+            <h3>Qu'est-ce qu'un wallet crypto ?</h3>
+            <p>Un wallet (portefeuille) crypto ne "contient" pas vraiment tes crypto. Il contient les <strong>clés</strong> qui prouvent que tu les possèdes sur la blockchain.</p>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🔑</div>
+                    <span class="card-title">Les deux types de clés</span>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <tr>
+                            <th>Type</th>
+                            <th>C'est quoi ?</th>
+                            <th>À qui la donner ?</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Clé publique</strong> (adresse)</td>
+                            <td>Commence par <code>0x...</code></td>
+                            <td><span class="check">✓</span> Tout le monde — c'est comme ton IBAN</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Clé privée</strong></td>
+                            <td>Générée par ta seed phrase</td>
+                            <td><span class="cross">✗</span> <strong>PERSONNE</strong> — c'est le code de ta carte</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <h3>La seed phrase : ta clé de propriété</h3>
+            <p>Quand tu crées un wallet, il génère une <strong>seed phrase</strong> : 12 ou 24 mots en anglais, dans un ordre précis.</p>
+
+            <div class="code-block">exemple mountain laptop ocean carpet
+desk chair window forest river
+bridge castle garden sunset dream</div>
+
+            <p>Cette seed phrase permet de :</p>
+            <ul class="list list-check">
+                <li>Recréer ton wallet sur n'importe quel appareil</li>
+                <li>Accéder à tous tes fonds sur toutes les blockchains</li>
+                <li>Prouver que tu es le propriétaire légitime</li>
+            </ul>
+
+            <div class="alert alert-danger">
+                <span class="alert-icon">🚨</span>
+                <div>
+                    <strong>SÉCURITÉ CRITIQUE</strong><br><br>
+                    <strong>À NE JAMAIS FAIRE :</strong>
+                    <ul class="list list-cross">
+                        <li>Prendre en photo</li>
+                        <li>Stocker dans le cloud (Google Drive, iCloud...)</li>
+                        <li>Envoyer par email ou messagerie</li>
+                        <li>Donner à quelqu'un (même le "support technique")</li>
+                    </ul>
+                    <br>
+                    <strong>PERSONNE de légitime ne te demandera jamais ta seed phrase.</strong><br>
+                    Si quelqu'un te la demande = ARNAQUE 100%
+                </div>
+            </div>
+
+            <h3>Qu'est-ce qu'un smart contract ?</h3>
+            <p>Un smart contract est un <strong>programme automatique</strong> sur la blockchain.</p>
+
+            <p><strong>Analogie :</strong> Imagine un distributeur automatique</p>
+            <ul class="list">
+                <li>Tu mets une pièce → Tu appuies sur un bouton → Tu reçois une canette</li>
+                <li>Il suit des règles programmées, sans intervention humaine</li>
+                <li>Il ne peut pas "décider" de garder ta pièce</li>
+            </ul>
+
+            <p>Un smart contract fonctionne pareil : les règles sont <strong>publiques et vérifiables</strong>, il ne peut pas "tricher".</p>
+
+            <h3>Pourquoi Phantom ?</h3>
+            <p>Phantom est un <strong>wallet crypto</strong> sous forme d'extension de navigateur. On l'utilise car :</p>
+            <ul class="list list-check">
+                <li>Support natif du réseau Base</li>
+                <li>Interface simple et claire</li>
+                <li>Excellente sécurité</li>
+                <li>Compatibilité parfaite avec Lighter</li>
+            </ul>
+
+            <h3>Qu'est-ce que le réseau Base ?</h3>
+            <p>Base est une <strong>"Layer 2"</strong> d'Ethereum créée par Coinbase :</p>
+            <ul class="list list-check">
+                <li>Même sécurité qu'Ethereum</li>
+                <li>Transactions <strong>100x moins chères</strong> (~0.001$ au lieu de 5-15$)</li>
+                <li>Même adresse que sur Ethereum (commence par <code>0x</code>)</li>
+            </ul>
+            <p><strong>Logo :</strong> carré noir ⬛</p>
+        </section>
+
+        <!-- Section 2: Avant de commencer -->
+        <section class="section" id="avant">
+            <h2>🚀 Avant de commencer</h2>
+
+            <h3>Quel est ton cas ?</h3>
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h4>📊 Cas 1 : Depuis un exchange</h4>
+                    <p style="color: var(--text-secondary);">Tu as déjà de la crypto sur Bybit, Binance, XT.com ou tu sais en acheter.</p>
+                    <p><strong>Méthode :</strong> Acheter sur l'exchange → Retirer vers Phantom</p>
+                </div>
+                <div class="comparison-card">
+                    <h4>💳 Cas 2 : Depuis zéro</h4>
+                    <p style="color: var(--text-secondary);">Tu n'as jamais acheté de crypto, tu pars de ta carte bancaire.</p>
+                    <p><strong>Méthode :</strong> Acheter directement dans Phantom par carte</p>
+                </div>
+            </div>
+
+            <h3>Ce dont tu as besoin</h3>
+            <div class="table-wrapper">
+                <table>
+                    <tr>
+                        <th>Quoi</th>
+                        <th>Pourquoi</th>
+                        <th>Montant</th>
+                    </tr>
+                    <tr>
+                        <td><strong>USDC</strong></td>
+                        <td>Ta monnaie de trading (1 USDC ≈ 1$)</td>
+                        <td>100$ recommandé</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ETH</strong></td>
+                        <td>Pour payer les frais de transaction (gas)</td>
+                        <td>~5$ (suffisant pour +1000 tx)</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Étape 1 -->
+        <section class="section" id="etape1">
+            <h2>Étape 1 — Installer Phantom Wallet</h2>
+
+            <div class="alert alert-info">
+                <span class="alert-icon">💻</span>
+                <div>Fais cette étape sur <strong>ordinateur</strong> avec <strong>Google Chrome</strong>. La première connexion à Lighter doit se faire sur PC.</div>
+            </div>
+
+            <h3>1.1 Télécharger Phantom</h3>
+
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-content">
+                    <h4>Aller sur le site officiel</h4>
+                    <p><a href="https://phantom.app/download" target="_blank" style="color: var(--accent-primary);">https://phantom.app/download</a></p>
+                </div>
+            </div>
+
+            <div class="alert alert-danger">
+                <span class="alert-icon">⚠️</span>
+                <div>
+                    <strong>ATTENTION AUX ARNAQUES :</strong>
+                    <ul class="list list-cross">
+                        <li>Ne tape JAMAIS "phantom wallet" dans Google</li>
+                        <li>Ne clique pas sur les liens sponsorisés</li>
+                        <li>L'URL officielle est <strong>phantom.app</strong> uniquement</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-content">
+                    <h4>Ajouter l'extension</h4>
+                    <p>Clique sur "Download for Chrome" → Chrome Web Store → "Ajouter à Chrome"</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <div class="step-content">
+                    <h4>Créer ton wallet</h4>
+                    <p>Clique sur l'icône Phantom 👻 → "Créer un nouveau wallet"</p>
+                </div>
+            </div>
+
+            <h3>1.2 Sauvegarder ta seed phrase</h3>
+            <p>Phantom affiche <strong>12 mots</strong>. <strong>ÉCRIS-LES SUR PAPIER</strong> immédiatement.</p>
+
+            <div class="code-block">┌─────────────────────────────────────────┐
+│  1. ______    2. ______    3. ______    │
+│  4. ______    5. ______    6. ______    │
+│  7. ______    8. ______    9. ______    │
+│ 10. ______   11. ______   12. ______    │
+└─────────────────────────────────────────┘</div>
+
+            <h3>1.3 Activer le réseau Base</h3>
+            <div class="step">
+                <span class="step-number">→</span>
+                <div class="step-content">
+                    <h4>Dans Phantom</h4>
+                    <p>Avatar (haut gauche) → Settings → Active Networks → Activer <strong>Base</strong> ✅</p>
+                </div>
+            </div>
+
+            <h3>1.4 Copier ton adresse Base</h3>
+            <div class="step">
+                <span class="step-number">→</span>
+                <div class="step-content">
+                    <h4>Sélectionner Base</h4>
+                    <p>Écran principal → Cliquer sur le réseau → Sélectionner "Base" (⬛) → Copier l'adresse <code>0x...</code></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Étape 2 -->
+        <section class="section" id="etape2">
+            <h2>Étape 2 — Approvisionner ton wallet</h2>
+
+            <h3>Cas 1 — Transfert depuis un exchange</h3>
+
+            <div class="alert alert-warning">
+                <span class="alert-icon">⚠️</span>
+                <div>
+                    <strong>Important :</strong> Les retraits se font UNIQUEMENT depuis le wallet <strong>Spot</strong>.
+                    <br>Si tes fonds sont dans Funding/Futures/Earn, transfère-les d'abord vers Spot.
+                </div>
+            </div>
+
+            <h4>Retirer vers Phantom</h4>
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-content">
+                    <h4>Sur ton exchange</h4>
+                    <p>Retrait → Sélectionner <strong>USDC</strong> → Coller ton adresse Phantom <code>0x...</code></p>
+                </div>
+            </div>
+
+            <div class="alert alert-danger">
+                <span class="alert-icon">🚨</span>
+                <div>
+                    <strong>CHOIX DU RÉSEAU — ÉTAPE CRITIQUE</strong>
+                    <div class="table-wrapper" style="margin-top: 1rem;">
+                        <table>
+                            <tr>
+                                <th>Ce que tu vois</th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <td>Base (⬛ carré noir)</td>
+                                <td><span class="check">✓</span> <strong>SÉLECTIONNER</strong></td>
+                            </tr>
+                            <tr>
+                                <td>ERC-20 / Ethereum</td>
+                                <td><span class="cross">✗</span> NE PAS sélectionner (frais 5-15$)</td>
+                            </tr>
+                            <tr>
+                                <td>TRC-20, BEP-20, autres</td>
+                                <td><span class="cross">✗</span> NE PAS sélectionner (fonds PERDUS)</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-content">
+                    <h4>Même processus pour ETH</h4>
+                    <p>Retrait → <strong>ETH</strong> → Même adresse → Réseau <strong>Base</strong> → ~5$ d'ETH</p>
+                </div>
+            </div>
+
+            <p><strong>Délai :</strong> 5-30 minutes selon l'exchange</p>
+
+            <h3>Cas 2 — Achat par carte via Phantom</h3>
+
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-content">
+                    <h4>Acheter USDC</h4>
+                    <p>Dans Phantom (sur Base) → Buy → Chercher "USDC" avec le logo Base (⬛) → 100$</p>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <tr>
+                        <th>Fournisseur</th>
+                        <th>Frais</th>
+                        <th>Tu reçois</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Coinbase Pay</strong></td>
+                        <td>~0%</td>
+                        <td>~100 USDC ✅</td>
+                    </tr>
+                    <tr>
+                        <td>Transak</td>
+                        <td>~1%</td>
+                        <td>~99 USDC</td>
+                    </tr>
+                    <tr>
+                        <td>MoonPay</td>
+                        <td>~4.5%</td>
+                        <td>~95.50 USDC</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="alert alert-info">
+                <span class="alert-icon">💡</span>
+                <div><strong>Premier achat :</strong> Vérification d'identité (KYC) requise par le fournisseur. Durée : ~5-10 min.</div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-content">
+                    <h4>Acheter ETH</h4>
+                    <p>Buy → "ETH" avec logo Base (⬛) → 5$</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Étape 3 -->
+        <section class="section" id="etape3">
+            <h2>Étape 3 — Se connecter à Lighter DEX</h2>
+
+            <div class="alert alert-info">
+                <span class="alert-icon">💻</span>
+                <div>Cette étape doit se faire sur <strong>ordinateur</strong>, pas sur téléphone.</div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-content">
+                    <h4>Ouvrir Lighter</h4>
+                    <p>Dans Chrome avec Phantom installé, va sur :<br>
+                    <a href="https://app.lighter.xyz/?referral=7122767G" target="_blank" style="color: var(--accent-primary); font-weight: bold;">app.lighter.xyz/?referral=7122767G</a></p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-content">
+                    <h4>Connecter ton wallet</h4>
+                    <p>"Connect Wallet" → Sélectionner "Phantom" → Vérifier l'URL → "Connect"</p>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <span class="alert-icon">💡</span>
+                <div>Connecter un wallet à un DEX, c'est comme montrer ta carte d'identité : tu prouves qui tu es, mais tu ne donnes <strong>pas</strong> accès à ton compte bancaire.</div>
+            </div>
+        </section>
+
+        <!-- Étape 4 -->
+        <section class="section" id="etape4">
+            <h2>Étape 4 — Authentifier son compte</h2>
+
+            <div class="card">
+                <h4>Sur l'écran d'authentification :</h4>
+                <ul class="list">
+                    <li><span class="cross">❌</span> <strong>NE COCHE PAS</strong> "I'll use a multi-sig/smart wallet"</li>
+                    <li><span class="check">✅</span> <strong>COCHE</strong> "Remember Me"</li>
+                    <li>Clique sur <strong>"Authenticate"</strong></li>
+                    <li>Phantom demande de signer → Clique <strong>"Sign"</strong></li>
+                </ul>
+            </div>
+
+            <div class="alert alert-info">
+                <span class="alert-icon">💡</span>
+                <div>
+                    <strong>C'est quoi une signature ?</strong><br>
+                    Tu prouves que tu contrôles cette adresse. Ce n'est PAS une transaction, ça ne coûte AUCUN frais, ça ne déplace AUCUN de tes fonds.
+                </div>
+            </div>
+        </section>
+
+        <!-- Étape 5 -->
+        <section class="section" id="etape5">
+            <h2>Étape 5 — Déposer tes USDC</h2>
+
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-content">
+                    <h4>Choisir la méthode</h4>
+                    <p>Sélectionne <strong>"Deposit from connected wallet"</strong></p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-content">
+                    <h4>Configurer</h4>
+                    <p>Token : <strong>USDC (Perps)</strong> — Réseau : <strong>Base</strong> — Montant : <strong>100 USDC</strong></p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <div class="step-content">
+                    <h4>Confirmer</h4>
+                    <p>Clique "Deposit" → Vérifie dans Phantom → "Confirm"</p>
+                </div>
+            </div>
+
+            <div class="diagram">
+                <h4 style="margin-bottom: 1.5rem;">Ce qui se passe</h4>
+                <div class="diagram-flow">
+                    <div class="diagram-box">
+                        <div>👻 Phantom</div>
+                        <div class="diagram-label">Ton wallet</div>
+                    </div>
+                    <span class="diagram-arrow">→</span>
+                    <div class="diagram-box highlight">
+                        <div>📜 Smart Contract</div>
+                        <div class="diagram-label">Code automatique</div>
+                    </div>
+                    <span class="diagram-arrow">→</span>
+                    <div class="diagram-box">
+                        <div>⚡ Lighter</div>
+                        <div class="diagram-label">Prêt à trader</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <span class="alert-icon">🎉</span>
+                <div>
+                    <strong>C'est terminé !</strong> Tu es maintenant prêt à trader avec Botlyz sur Lighter DEX.
+                    <br><br>
+                    N'oublie pas de contacter <strong>@botlyz_manager</strong> pour réclamer tes <strong>20$ de crédit</strong> !
+                </div>
+            </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="section" id="checklist">
+            <h2>📋 Checklist finale</h2>
+
+            <div class="checklist">
+                <h3>Installation</h3>
+                <div class="checklist-item"><span class="checkbox"></span> Phantom installé sur Chrome</div>
+                <div class="checklist-item"><span class="checkbox"></span> Wallet créé</div>
+                <div class="checklist-item"><span class="checkbox"></span> Seed phrase notée sur papier</div>
+                <div class="checklist-item"><span class="checkbox"></span> Réseau Base activé</div>
+
+                <h3 style="margin-top: 1.5rem;">Approvisionnement</h3>
+                <div class="checklist-item"><span class="checkbox"></span> 100 USDC reçus sur Base</div>
+                <div class="checklist-item"><span class="checkbox"></span> ~5$ ETH reçus sur Base</div>
+
+                <h3 style="margin-top: 1.5rem;">Lighter</h3>
+                <div class="checklist-item"><span class="checkbox"></span> Connecté via le lien parrainage</div>
+                <div class="checklist-item"><span class="checkbox"></span> Authentifié (Remember Me ✓)</div>
+                <div class="checklist-item"><span class="checkbox"></span> Dépôt USDC effectué</div>
+
+                <h3 style="margin-top: 1.5rem;">Bonus</h3>
+                <div class="checklist-item"><span class="checkbox"></span> Crédit 20$ réclamé (@botlyz_manager)</div>
+            </div>
+        </section>
+
+        <!-- Dépannage -->
+        <section class="section" id="depannage">
+            <h2>🔧 Dépannage</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <tr>
+                        <th>Problème</th>
+                        <th>Solution</th>
+                    </tr>
+                    <tr>
+                        <td>Transaction échouée</td>
+                        <td>Vérifier qu'il y a de l'ETH sur <strong>Base</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Balance affiche 0</td>
+                        <td>Vérifier que les USDC sont sur <strong>Base</strong> dans Phantom</td>
+                    </tr>
+                    <tr>
+                        <td>Phantom ne se connecte pas</td>
+                        <td>Désactiver les autres extensions wallet, vider le cache</td>
+                    </tr>
+                    <tr>
+                        <td>USDC non reçus</td>
+                        <td>Attendre jusqu'à 60 min, vérifier sur <a href="https://basescan.org" target="_blank" style="color: var(--accent-primary);">basescan.org</a></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Glossaire -->
+        <section class="section" id="glossaire">
+            <h2>📚 Glossaire</h2>
+
+            <div class="glossary-item">
+                <div class="glossary-term">Blockchain</div>
+                <div class="glossary-def">Registre numérique partagé où toutes les transactions sont enregistrées de façon permanente</div>
+            </div>
+            <div class="glossary-item">
+                <div class="glossary-term">CEX</div>
+                <div class="glossary-def">Centralized Exchange — Plateforme d'échange gérée par une entreprise (ex: Binance, Bybit)</div>
+            </div>
+            <div class="glossary-item">
+                <div class="glossary-term">DEX</div>
+                <div class="glossary-def">Decentralized Exchange — Plateforme d'échange gérée par des smart contracts (ex: Lighter)</div>
+            </div>
+            <div class="glossary-item">
+                <div class="glossary-term">Gas</div>
+                <div class="glossary-def">Frais payés pour exécuter une transaction sur la blockchain</div>
+            </div>
+            <div class="glossary-item">
+                <div class="glossary-term">Layer 2 (L2)</div>
+                <div class="glossary-def">Réseau construit au-dessus d'Ethereum pour des transactions plus rapides et moins chères</div>
+            </div>
+            <div class="glossary-item">
+                <div class="glossary-term">Seed Phrase</div>
+                <div class="glossary-def">Suite de 12-24 mots permettant de restaurer un wallet — NE JAMAIS PARTAGER</div>
+            </div>
+            <div class="glossary-item">
+                <div class="glossary-term">Smart Contract</div>
+                <div class="glossary-def">Programme automatique sur la blockchain qui exécute des règles prédéfinies</div>
+            </div>
+            <div class="glossary-item">
+                <div class="glossary-term">Stablecoin</div>
+                <div class="glossary-def">Crypto dont la valeur est stable (1 USDC ≈ 1$)</div>
+            </div>
+            <div class="glossary-item">
+                <div class="glossary-term">Wallet</div>
+                <div class="glossary-def">Portefeuille crypto qui stocke les clés permettant d'accéder à tes fonds</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="https://botlyz.com">Site principal</a>
+            <a href="https://t.me/BotlyzBot">Telegram Bot</a>
+            <a href="https://t.me/botlyz_manager">Support</a>
+            <a href="https://app.lighter.xyz/?referral=7122767G">Lighter DEX</a>
+        </div>
+        <p>© 2024 Botlyz — Trading automatisé nouvelle génération</p>
+    </footer>
+
+    <!-- Scroll to top -->
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

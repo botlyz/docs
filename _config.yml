@@ -1,0 +1,22 @@
+# Configuration GitHub Pages pour Botlyz Docs
+title: Botlyz Documentation
+description: Guide complet pour démarrer sur Lighter DEX avec Botlyz
+theme: jekyll-theme-cayman
+baseurl: ""
+url: "https://botlyz.github.io/docs"
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# Encoding
+encoding: utf-8
+
+# Exclude files
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore

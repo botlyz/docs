@@ -761,7 +761,7 @@
         <p>De la carte bancaire au trading automatisé — le guide complet pour les débutants</p>
         <div class="hero-badges">
             <span class="badge"><span class="badge-icon">⏱️</span> 30-60 min</span>
-            <span class="badge"><span class="badge-icon">💰</span> ~105$</span>
+            <span class="badge"><span class="badge-icon">💰</span> Ton montant + ~5$ ETH</span>
             <span class="badge"><span class="badge-icon">⬛</span> Réseau Base</span>
         </div>
         <a href="https://app.lighter.xyz/?referral=7122767G" target="_blank" class="btn btn-primary">
@@ -841,6 +841,36 @@
                 </div>
             </div>
 
+            <h4>🎯 Ce que ça change concrètement pour toi</h4>
+            <div class="table-wrapper">
+                <table>
+                    <tr>
+                        <th>Sur un CEX</th>
+                        <th>Sur un DEX (Lighter)</th>
+                    </tr>
+                    <tr>
+                        <td>L'exchange peut geler ton compte</td>
+                        <td><span class="check">✓</span> Impossible — tu contrôles tes fonds</td>
+                    </tr>
+                    <tr>
+                        <td>L'exchange peut faire faillite</td>
+                        <td><span class="check">✓</span> Le smart contract continue de fonctionner</td>
+                    </tr>
+                    <tr>
+                        <td>Tu dois faire confiance à l'exchange</td>
+                        <td><span class="check">✓</span> Tu fais confiance au code (vérifiable)</td>
+                    </tr>
+                    <tr>
+                        <td>Support client disponible</td>
+                        <td><span class="cross">✗</span> Pas de support pour récupérer ta seed phrase</td>
+                    </tr>
+                    <tr>
+                        <td>Mot de passe oublié ? → Reset par email</td>
+                        <td><span class="cross">✗</span> Seed phrase perdue ? → Fonds perdus à jamais</td>
+                    </tr>
+                </table>
+            </div>
+
             <h3>Qu'est-ce qu'un wallet crypto ?</h3>
             <p>Un wallet (portefeuille) crypto ne "contient" pas vraiment tes crypto. Il contient les <strong>clés</strong> qui prouvent que tu les possèdes sur la blockchain.</p>
 
@@ -884,6 +914,37 @@ bridge castle garden sunset dream</div>
                 <li>Prouver que tu es le propriétaire légitime</li>
             </ul>
 
+            <h4>⚠️ La différence avec une banque</h4>
+            <div class="table-wrapper">
+                <table>
+                    <tr>
+                        <th>Situation</th>
+                        <th>À la banque</th>
+                        <th>Avec ta seed phrase</th>
+                    </tr>
+                    <tr>
+                        <td>Tu oublies ton mot de passe</td>
+                        <td>Reset par email/SMS</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>Tu perds ton téléphone</td>
+                        <td>Tu appelles la banque</td>
+                        <td><span class="check">✓</span> Tu réinstalles le wallet avec ta seed phrase</td>
+                    </tr>
+                    <tr>
+                        <td>Quelqu'un vole tes identifiants</td>
+                        <td>La banque peut bloquer, rembourser</td>
+                        <td><span class="cross">✗</span> <strong>Fonds volés définitivement</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Tu perds ta seed phrase</td>
+                        <td>—</td>
+                        <td><span class="cross">✗</span> <strong>Fonds perdus définitivement</strong></td>
+                    </tr>
+                </table>
+            </div>
+
             <div class="alert alert-danger">
                 <span class="alert-icon">🚨</span>
                 <div>
@@ -914,22 +975,97 @@ bridge castle garden sunset dream</div>
             <p>Un smart contract fonctionne pareil : les règles sont <strong>publiques et vérifiables</strong>, il ne peut pas "tricher".</p>
 
             <h3>Pourquoi Phantom ?</h3>
-            <p>Phantom est un <strong>wallet crypto</strong> sous forme d'extension de navigateur. On l'utilise car :</p>
+            <p>Phantom est un <strong>wallet crypto</strong> sous forme d'extension de navigateur (comme un AdBlock, mais pour la crypto). On l'utilise car :</p>
             <ul class="list list-check">
                 <li>Support natif du réseau Base</li>
                 <li>Interface simple et claire</li>
                 <li>Excellente sécurité</li>
                 <li>Compatibilité parfaite avec Lighter</li>
+                <li>Support multi-chaînes (Solana, Ethereum, Base...)</li>
             </ul>
 
+            <h4>📱 Phantom vs l'app d'un exchange</h4>
+            <div class="table-wrapper">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>App Binance/Bybit</th>
+                        <th>Phantom</th>
+                    </tr>
+                    <tr>
+                        <td>Qui contrôle tes fonds ?</td>
+                        <td>L'exchange</td>
+                        <td><strong>Toi</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Besoin de KYC ?</td>
+                        <td>Oui</td>
+                        <td><strong>Non</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Peut être gelé ?</td>
+                        <td>Oui</td>
+                        <td><strong>Non</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Tu as la seed phrase ?</td>
+                        <td>Non</td>
+                        <td><strong>Oui</strong></td>
+                    </tr>
+                </table>
+            </div>
+
             <h3>Qu'est-ce que le réseau Base ?</h3>
-            <p>Base est une <strong>"Layer 2"</strong> d'Ethereum créée par Coinbase :</p>
+            <p>Une blockchain est un <strong>registre numérique partagé</strong> où sont enregistrées toutes les transactions. Il en existe plusieurs :</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <tr>
+                        <th>Blockchain</th>
+                        <th>Créateur</th>
+                        <th>Cas d'usage</th>
+                        <th>Symbole</th>
+                    </tr>
+                    <tr>
+                        <td>Bitcoin</td>
+                        <td>Satoshi Nakamoto</td>
+                        <td>Réserve de valeur</td>
+                        <td>BTC</td>
+                    </tr>
+                    <tr>
+                        <td>Ethereum</td>
+                        <td>Vitalik Buterin</td>
+                        <td>Smart contracts</td>
+                        <td>ETH</td>
+                    </tr>
+                    <tr>
+                        <td>Solana</td>
+                        <td>Solana Labs</td>
+                        <td>Transactions rapides</td>
+                        <td>SOL</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Base</strong></td>
+                        <td>Coinbase</td>
+                        <td>Transactions pas chères</td>
+                        <td>ETH (sur Base)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h4>⬛ Base : l'essentiel</h4>
+            <p>Base est une <strong>"Layer 2"</strong> d'Ethereum. Concrètement :</p>
             <ul class="list list-check">
                 <li>Même sécurité qu'Ethereum</li>
                 <li>Transactions <strong>100x moins chères</strong> (~0.001$ au lieu de 5-15$)</li>
                 <li>Même adresse que sur Ethereum (commence par <code>0x</code>)</li>
             </ul>
             <p><strong>Logo :</strong> carré noir ⬛</p>
+
+            <div class="alert alert-warning">
+                <span class="alert-icon">⚠️</span>
+                <div><strong>ATTENTION :</strong> Quand tu envoies des crypto, tu dois <strong>toujours sélectionner le bon réseau</strong>. Envoyer des USDC via Ethereum au lieu de Base = frais 100x plus élevés. Envoyer via un mauvais réseau = <strong>fonds perdus définitivement</strong>.</div>
+            </div>
         </section>
 
         <!-- Section 2: Avant de commencer -->
@@ -961,7 +1097,7 @@ bridge castle garden sunset dream</div>
                     <tr>
                         <td><strong>USDC</strong></td>
                         <td>Ta monnaie de trading (1 USDC ≈ 1$)</td>
-                        <td>100$ recommandé</td>
+                        <td>Le montant que tu veux trader sur Botlyz</td>
                     </tr>
                     <tr>
                         <td><strong>ETH</strong></td>
@@ -1114,7 +1250,7 @@ bridge castle garden sunset dream</div>
                 <span class="step-number">1</span>
                 <div class="step-content">
                     <h4>Acheter USDC</h4>
-                    <p>Dans Phantom (sur Base) → Buy → Chercher "USDC" avec le logo Base (⬛) → 100$</p>
+                    <p>Dans Phantom (sur Base) → Buy → Chercher "USDC" avec le logo Base (⬛) → Entre le montant souhaité</p>
                 </div>
             </div>
 
@@ -1228,7 +1364,7 @@ bridge castle garden sunset dream</div>
                 <span class="step-number">2</span>
                 <div class="step-content">
                     <h4>Configurer</h4>
-                    <p>Token : <strong>USDC (Perps)</strong> — Réseau : <strong>Base</strong> — Montant : <strong>100 USDC</strong></p>
+                    <p>Token : <strong>USDC (Perps)</strong> — Réseau : <strong>Base</strong> — Montant : <strong>le montant que tu veux déposer</strong></p>
                 </div>
             </div>
 
@@ -1324,7 +1460,7 @@ bridge castle garden sunset dream</div>
                 <div class="checklist-item"><span class="checkbox"></span> Réseau Base activé</div>
 
                 <h3 style="margin-top: 1.5rem;">Approvisionnement</h3>
-                <div class="checklist-item"><span class="checkbox"></span> 100 USDC reçus sur Base</div>
+                <div class="checklist-item"><span class="checkbox"></span> USDC reçus sur Base (ton montant de trading)</div>
                 <div class="checklist-item"><span class="checkbox"></span> ~5$ ETH reçus sur Base</div>
 
                 <h3 style="margin-top: 1.5rem;">Lighter</h3>
@@ -1435,9 +1571,9 @@ bridge castle garden sunset dream</div>
                         <td>Gratuit</td>
                     </tr>
                     <tr>
-                        <td>Acheter 100 USDC</td>
+                        <td>Acheter USDC</td>
                         <td>Frais exchange (~0.1-1%)</td>
-                        <td>0-4.50$ de frais</td>
+                        <td>0-4.5% de frais</td>
                     </tr>
                     <tr>
                         <td>Acheter 5$ ETH</td>
@@ -1456,8 +1592,8 @@ bridge castle garden sunset dream</div>
                     </tr>
                     <tr style="background: var(--bg-tertiary); font-weight: 600;">
                         <td>Total estimé</td>
-                        <td>~106-108$</td>
-                        <td>~105-110$</td>
+                        <td>Montant + ~6-8$ de frais</td>
+                        <td>Montant + ~5-10$ de frais</td>
                     </tr>
                 </table>
             </div>

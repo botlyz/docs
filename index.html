@@ -2792,12 +2792,18 @@ bridge castle garden sunset dream</div>
     <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
 
     <script>
-        // Smooth scroll for anchor links
+        // Smooth scroll for anchor links + trigger fade-in on target
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
+                    // Immediately show the target section and its children
+                    target.classList.add('fade-visible');
+                    target.querySelectorAll('.fade-element').forEach(el => {
+                        el.classList.add('fade-visible');
+                    });
+                    // Scroll to target
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
@@ -2818,8 +2824,8 @@ bridge castle garden sunset dream</div>
         const fadeElements = document.querySelectorAll('.section, .card, .step, .comparison-card, .alert, .referral-box');
 
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.01,
+            rootMargin: '50px 0px 0px 0px'
         };
 
         const fadeObserver = new IntersectionObserver((entries) => {

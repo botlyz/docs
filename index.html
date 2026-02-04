@@ -1385,99 +1385,63 @@
             background: var(--success);
         }
 
-        /* Mobile progress bar */
+        /* Mobile progress bar - appears at TOP when scrolling down */
         .progress-mobile {
             display: none;
             position: fixed;
-            bottom: 0;
+            top: 0;
             left: 0;
             right: 0;
             background: var(--bg-card);
-            border-top: 1px solid var(--border-color);
-            padding: 0.75rem 1rem;
-            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
         }
 
-        .progress-mobile-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
+        .progress-mobile.visible {
+            transform: translateY(0);
         }
 
-        .progress-mobile-info {
+        .progress-mobile-bar-top {
+            height: 3px;
+            background: var(--bg-tertiary);
+            width: 100%;
+        }
+
+        .progress-mobile-bar-fill-top {
+            height: 100%;
+            background: var(--accent-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .progress-mobile-content {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.75rem;
+            padding: 0.6rem 1rem;
         }
 
         .progress-mobile-percentage {
-            font-size: 1.25rem;
+            font-size: 1rem;
             font-weight: 700;
             background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            min-width: 40px;
         }
 
-        .progress-mobile-bar {
+        .progress-mobile-title {
             flex: 1;
-            height: 6px;
-            background: var(--bg-tertiary);
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .progress-mobile-bar-fill {
-            height: 100%;
-            background: var(--accent-gradient);
-            border-radius: 3px;
-            transition: width 0.3s ease;
-        }
-
-        .progress-mobile-toggle {
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-tertiary);
-            border-radius: 50%;
-            transition: transform 0.3s ease;
-        }
-
-        .progress-mobile.expanded .progress-mobile-toggle {
-            transform: rotate(180deg);
-        }
-
-        .progress-mobile-sections {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .progress-mobile.expanded .progress-mobile-sections {
-            max-height: 60vh;
-            overflow-y: auto;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .progress-mobile-section-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.6rem 0.5rem;
-            border-radius: 8px;
             font-size: 0.85rem;
-            color: var(--text-tertiary);
-            text-decoration: none;
-            transition: all 0.2s;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-        .progress-mobile-section-item.active {
-            background: rgba(0, 212, 255, 0.1);
+        .progress-mobile-title span {
             color: var(--accent-primary);
             font-weight: 500;
         }
@@ -1490,8 +1454,17 @@
             .progress-mobile {
                 display: block;
             }
-            .container {
-                padding-bottom: 80px;
+        }
+
+        /* Hide TOC when progress bar is visible on mobile */
+        @media (max-width: 768px) {
+            .toc.hidden-by-progress {
+                opacity: 0;
+                transform: translateY(-20px);
+                pointer-events: none;
+            }
+            .toc {
+                transition: opacity 0.3s ease, transform 0.3s ease;
             }
         }
     </style>
@@ -3149,71 +3122,17 @@ bridge castle garden sunset dream</div>
         </nav>
     </aside>
 
-    <!-- Mobile Progress Bar -->
+    <!-- Mobile Progress Bar (appears at top when scrolling down) -->
     <div class="progress-mobile" id="progressMobile">
-        <div class="progress-mobile-header" onclick="toggleMobileProgress()">
-            <div class="progress-mobile-info">
-                <span class="progress-mobile-percentage" id="progressPercentMobile">0%</span>
-                <div class="progress-mobile-bar">
-                    <div class="progress-mobile-bar-fill" id="progressBarFillMobile" style="width: 0%"></div>
-                </div>
-            </div>
-            <div class="progress-mobile-toggle">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="18 15 12 9 6 15"></polyline>
-                </svg>
+        <div class="progress-mobile-bar-top">
+            <div class="progress-mobile-bar-fill-top" id="progressBarFillMobile" style="width: 0%"></div>
+        </div>
+        <div class="progress-mobile-content">
+            <span class="progress-mobile-percentage" id="progressPercentMobile">0%</span>
+            <div class="progress-mobile-title" id="progressTitleMobile">
+                <span>Comprendre</span>
             </div>
         </div>
-        <nav class="progress-mobile-sections" id="progressSectionsMobile">
-            <a href="#comprendre" class="progress-mobile-section-item" data-section="comprendre">
-                <span class="progress-section-dot"></span>
-                <span>1. Comprendre</span>
-            </a>
-            <a href="#avant" class="progress-mobile-section-item" data-section="avant">
-                <span class="progress-section-dot"></span>
-                <span>2. Avant de commencer</span>
-            </a>
-            <a href="#etape1" class="progress-mobile-section-item" data-section="etape1">
-                <span class="progress-section-dot"></span>
-                <span>3. Installer MetaMask</span>
-            </a>
-            <a href="#etape2" class="progress-mobile-section-item" data-section="etape2">
-                <span class="progress-section-dot"></span>
-                <span>4. Approvisionner</span>
-            </a>
-            <a href="#etape3" class="progress-mobile-section-item" data-section="etape3">
-                <span class="progress-section-dot"></span>
-                <span>5. Connexion Lighter</span>
-            </a>
-            <a href="#etape4" class="progress-mobile-section-item" data-section="etape4">
-                <span class="progress-section-dot"></span>
-                <span>6. Swap + Dépôt</span>
-            </a>
-            <a href="#etape5" class="progress-mobile-section-item" data-section="etape5">
-                <span class="progress-section-dot"></span>
-                <span>7. Auth API</span>
-            </a>
-            <a href="#etape6" class="progress-mobile-section-item" data-section="etape6">
-                <span class="progress-section-dot"></span>
-                <span>8. Generate API Key</span>
-            </a>
-            <a href="#etape7" class="progress-mobile-section-item" data-section="etape7">
-                <span class="progress-section-dot"></span>
-                <span>9. Connecter Botlyz</span>
-            </a>
-            <a href="#backtest" class="progress-mobile-section-item" data-section="backtest">
-                <span class="progress-section-dot"></span>
-                <span>📊 Backtest</span>
-            </a>
-            <a href="#etape8" class="progress-mobile-section-item" data-section="etape8">
-                <span class="progress-section-dot"></span>
-                <span>10. Configurer stratégie</span>
-            </a>
-            <a href="#checklist" class="progress-mobile-section-item" data-section="checklist">
-                <span class="progress-section-dot"></span>
-                <span>✓ Checklist</span>
-            </a>
-        </nav>
     </div>
 
     <!-- Footer -->
@@ -3283,9 +3202,18 @@ bridge castle garden sunset dream</div>
 
         // Progress sidebar functionality
         const progressSections = [
-            'comprendre', 'avant', 'etape1', 'etape2', 'etape3',
-            'etape4', 'etape5', 'etape6', 'etape7', 'backtest',
-            'etape8', 'checklist'
+            { id: 'comprendre', title: 'Comprendre' },
+            { id: 'avant', title: 'Avant de commencer' },
+            { id: 'etape1', title: 'Installer MetaMask' },
+            { id: 'etape2', title: 'Approvisionner' },
+            { id: 'etape3', title: 'Connexion Lighter' },
+            { id: 'etape4', title: 'Swap + Dépôt' },
+            { id: 'etape5', title: 'Auth API' },
+            { id: 'etape6', title: 'Generate API Key' },
+            { id: 'etape7', title: 'Connecter Botlyz' },
+            { id: 'backtest', title: 'Backtest' },
+            { id: 'etape8', title: 'Configurer stratégie' },
+            { id: 'checklist', title: 'Checklist finale' }
         ];
 
         // Desktop elements
@@ -3296,26 +3224,13 @@ bridge castle garden sunset dream</div>
         // Mobile elements
         const progressPercentMobile = document.getElementById('progressPercentMobile');
         const progressBarFillMobile = document.getElementById('progressBarFillMobile');
-        const sectionItemsMobile = document.querySelectorAll('.progress-mobile-section-item');
+        const progressTitleMobile = document.getElementById('progressTitleMobile');
         const progressMobile = document.getElementById('progressMobile');
+        const toc = document.querySelector('.toc');
 
-        // Toggle mobile progress panel
-        function toggleMobileProgress() {
-            progressMobile.classList.toggle('expanded');
-        }
-
-        // Close mobile progress when clicking a link
-        sectionItemsMobile.forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                progressMobile.classList.remove('expanded');
-                const targetId = item.getAttribute('href').substring(1);
-                const target = document.getElementById(targetId);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
+        // Track scroll direction
+        let lastScrollTop = 0;
+        let scrollThreshold = 100; // Show mobile bar after scrolling this much
 
         // Calculate scroll progress and update active section
         function updateProgress() {
@@ -3334,7 +3249,7 @@ bridge castle garden sunset dream</div>
             let activeIndex = -1;
 
             for (let i = progressSections.length - 1; i >= 0; i--) {
-                const section = document.getElementById(progressSections[i]);
+                const section = document.getElementById(progressSections[i].id);
                 if (section) {
                     const rect = section.getBoundingClientRect();
                     if (rect.top <= 150) {
@@ -3345,29 +3260,39 @@ bridge castle garden sunset dream</div>
                 }
             }
 
+            // Update mobile title
+            if (activeSection) {
+                progressTitleMobile.innerHTML = '<span>' + activeSection.title + '</span>';
+            }
+
             // Update section items (desktop)
             sectionItems.forEach((item, index) => {
                 const sectionId = item.getAttribute('data-section');
                 item.classList.remove('active', 'completed');
 
-                if (sectionId === activeSection) {
+                if (activeSection && sectionId === activeSection.id) {
                     item.classList.add('active');
-                } else if (activeIndex > -1 && progressSections.indexOf(sectionId) < activeIndex) {
-                    item.classList.add('completed');
+                } else if (activeIndex > -1) {
+                    const itemIndex = progressSections.findIndex(s => s.id === sectionId);
+                    if (itemIndex < activeIndex) {
+                        item.classList.add('completed');
+                    }
                 }
             });
 
-            // Update section items (mobile)
-            sectionItemsMobile.forEach((item, index) => {
-                const sectionId = item.getAttribute('data-section');
-                item.classList.remove('active', 'completed');
+            // Show/hide mobile progress bar based on scroll direction
+            const scrollingDown = scrollTop > lastScrollTop;
+            const pastThreshold = scrollTop > scrollThreshold;
 
-                if (sectionId === activeSection) {
-                    item.classList.add('active');
-                } else if (activeIndex > -1 && progressSections.indexOf(sectionId) < activeIndex) {
-                    item.classList.add('completed');
-                }
-            });
+            if (pastThreshold && scrollingDown) {
+                progressMobile.classList.add('visible');
+                if (toc) toc.classList.add('hidden-by-progress');
+            } else if (!scrollingDown || scrollTop < 50) {
+                progressMobile.classList.remove('visible');
+                if (toc) toc.classList.remove('hidden-by-progress');
+            }
+
+            lastScrollTop = scrollTop;
         }
 
         // Throttle scroll event for performance

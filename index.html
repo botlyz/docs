@@ -133,8 +133,12 @@
 
         .btn-primary {
             background: var(--accent-gradient);
-            color: var(--bg-primary);
+            color: #0a0b0d !important;
             box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+        }
+
+        a.btn-primary {
+            color: #0a0b0d !important;
         }
 
         .btn-primary:hover {
@@ -362,10 +366,16 @@
         .section {
             padding: 3rem 0;
             border-bottom: 1px solid var(--border-color);
+            scroll-margin-top: 90px;
         }
 
         .section:last-child {
             border-bottom: none;
+        }
+
+        /* Scroll offset for all anchor targets (navbar is 70px + 20px padding) */
+        [id] {
+            scroll-margin-top: 90px;
         }
 
         .section h2 {

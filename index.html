@@ -794,6 +794,10 @@
                 <a href="#etape4"><span class="toc-number">6</span> Authentification</a>
                 <a href="#etape5"><span class="toc-number">7</span> Déposer USDC</a>
                 <a href="#etape6"><span class="toc-number">8</span> Lier téléphone</a>
+                <a href="#etape7"><span class="toc-number">9</span> Créer clé API Lighter</a>
+                <a href="#etape8"><span class="toc-number">10</span> Connecter à Botlyz</a>
+                <a href="#etape9"><span class="toc-number">11</span> Configurer stratégie</a>
+                <a href="#backtest"><span class="toc-number">📊</span> Backtest</a>
                 <a href="#checklist"><span class="toc-number">✓</span> Checklist finale</a>
                 <a href="#couts"><span class="toc-number">💰</span> Coûts</a>
                 <a href="#lighter-info"><span class="toc-number">ℹ️</span> Infos Lighter</a>
@@ -1488,12 +1492,399 @@ bridge castle garden sunset dream</div>
             </div>
         </section>
 
+        <!-- Étape 7: Créer clé API -->
+        <section class="section" id="etape7">
+            <h2>Étape 7 — Créer une clé API sur Lighter</h2>
+            <p>Pour que Botlyz puisse trader sur ton compte Lighter, tu dois créer une <strong>clé API</strong>. C'est une autorisation spécifique qui permet au bot de passer des ordres sans avoir accès à ta seed phrase.</p>
+
+            <div class="alert alert-success">
+                <span class="alert-icon">🔐</span>
+                <div>
+                    <strong>Sécurité :</strong> La clé API est différente de ta seed phrase. Elle permet uniquement de trader, pas de retirer tes fonds. Tu peux la révoquer à tout moment depuis Lighter.
+                </div>
+            </div>
+
+            <h3>7.1 Accéder aux paramètres API</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-content">
+                    <h4>Ouvrir la page API Keys</h4>
+                    <p>Va sur <a href="https://app.lighter.xyz/apikeys" target="_blank" style="color: var(--accent-primary); font-weight: bold;">app.lighter.xyz/apikeys</a></p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-content">
+                    <h4>Créer une nouvelle clé</h4>
+                    <p>Clique sur <strong>"Create API Key"</strong> ou <strong>"Créer une clé API"</strong></p>
+                </div>
+            </div>
+
+            <h3>7.2 Noter les informations importantes</h3>
+            <p>Une fois la clé créée, tu verras <strong>3 informations essentielles</strong> :</p>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">📋</div>
+                    <span class="card-title">Informations à copier</span>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <tr>
+                            <th>Information</th>
+                            <th>Description</th>
+                            <th>Exemple</th>
+                        </tr>
+                        <tr>
+                            <td><strong>ETH Address</strong></td>
+                            <td>Ton adresse de wallet (déjà connue)</td>
+                            <td><code>0xc9D0...6cA3</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>API Key Index</strong></td>
+                            <td>L'index de ta clé (généralement <strong>2</strong> pour la première clé)</td>
+                            <td><code>2</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>API Private Key</strong></td>
+                            <td>La clé privée générée (à garder secrète)</td>
+                            <td><code>0x7a8b...9c2d</code></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="alert alert-danger">
+                <span class="alert-icon">⚠️</span>
+                <div>
+                    <strong>IMPORTANT :</strong>
+                    <ul class="list list-cross">
+                        <li>La <strong>API Private Key</strong> n'est affichée qu'<strong>une seule fois</strong></li>
+                        <li>Copie-la immédiatement dans un endroit sûr</li>
+                        <li>Si tu la perds, tu devras créer une nouvelle clé</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="alert alert-info">
+                <span class="alert-icon">💡</span>
+                <div>
+                    <strong>Pourquoi l'index 2 ?</strong><br>
+                    Sur Lighter, les index 0 et 1 sont réservés pour des usages système. Le premier index utilisable pour les clés API est <strong>2</strong>. Si tu crées une deuxième clé, elle aura l'index 3, etc.
+                </div>
+            </div>
+        </section>
+
+        <!-- Étape 8: Connecter à Botlyz -->
+        <section class="section" id="etape8">
+            <h2>Étape 8 — Connecter Lighter à Botlyz</h2>
+            <p>Maintenant que tu as ta clé API Lighter, connectons-la au bot Telegram Botlyz.</p>
+
+            <h3>8.1 Démarrer le bot Telegram</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-content">
+                    <h4>Ouvrir Botlyz</h4>
+                    <p>Sur Telegram, ouvre <a href="https://t.me/BotlyzBot" target="_blank" style="color: var(--accent-primary); font-weight: bold;">@BotlyzBot</a> et clique sur <strong>"Démarrer"</strong> ou envoie <code>/start</code></p>
+                </div>
+            </div>
+
+            <h3>8.2 Créer ton compte (nouveaux utilisateurs)</h3>
+            <p>Si c'est ta première fois sur Botlyz, tu devras compléter l'inscription :</p>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-content">
+                    <h4>Entrer ton email</h4>
+                    <p>Le bot te demande ton adresse email (pour les factures)</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <div class="step-content">
+                    <h4>Entrer ton prénom</h4>
+                    <p>Pour personnaliser les messages</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">4</span>
+                <div class="step-content">
+                    <h4>Accepter les CGU</h4>
+                    <p>Lire et accepter les Conditions Générales d'Utilisation</p>
+                </div>
+            </div>
+
+            <h3>8.3 Ajouter un moyen de paiement</h3>
+
+            <div class="alert alert-info">
+                <span class="alert-icon">💳</span>
+                <div>
+                    <strong>Pourquoi une carte bancaire ?</strong><br>
+                    Botlyz fonctionne sur un modèle de commission sur les profits (25% des gains uniquement). La carte est utilisée pour le prélèvement automatique hebdomadaire. <strong>Tu ne paies rien si tu ne fais pas de profits.</strong>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">5</span>
+                <div class="step-content">
+                    <h4>Menu principal → "👤 Mon compte"</h4>
+                    <p>Accède aux paramètres de ton compte</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">6</span>
+                <div class="step-content">
+                    <h4>Sélectionner "💳 Facturation"</h4>
+                    <p>Puis <strong>"➕ Ajouter un moyen de paiement"</strong> → <strong>"💳 Carte bancaire"</strong></p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">7</span>
+                <div class="step-content">
+                    <h4>Compléter via Stripe</h4>
+                    <p>Tu seras redirigé vers une page <strong>Stripe</strong> (100% sécurisée) pour entrer ta carte</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🔒</div>
+                    <span class="card-title">Sécurité Stripe</span>
+                </div>
+                <ul class="list list-check">
+                    <li><strong>Stripe</strong> est le leader mondial du paiement en ligne (utilisé par Amazon, Google, Shopify...)</li>
+                    <li>Botlyz ne voit <strong>jamais</strong> ton numéro de carte</li>
+                    <li>Aucun débit n'est effectué lors de l'ajout</li>
+                    <li>Tu peux retirer ta carte à tout moment</li>
+                </ul>
+                <p style="margin-top: 1rem; color: var(--text-tertiary); font-size: 0.9rem;">💡 Tu peux aussi payer en crypto (SOL, USDC, USDT) pour éviter les frais de carte.</p>
+            </div>
+
+            <h3>8.4 Connecter ton compte Lighter</h3>
+
+            <div class="step">
+                <span class="step-number">8</span>
+                <div class="step-content">
+                    <h4>Menu principal → "🔧 Gérer mes exchanges"</h4>
+                    <p>Accède à la gestion des connexions exchange</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">9</span>
+                <div class="step-content">
+                    <h4>Sélectionner "⚡️ Connecter un compte Lighter"</h4>
+                    <p>Lance le processus de connexion Lighter</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">10</span>
+                <div class="step-content">
+                    <h4>Entrer ton adresse ETH</h4>
+                    <p>Colle ton adresse wallet <code>0x...</code> (42 caractères)</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">11</span>
+                <div class="step-content">
+                    <h4>Entrer l'index de ta clé API</h4>
+                    <p>Généralement <strong>2</strong> pour ta première clé (le bot propose ce choix par défaut)</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">12</span>
+                <div class="step-content">
+                    <h4>Entrer ta clé privée API</h4>
+                    <p>Colle la <strong>API Private Key</strong> copiée à l'étape 7</p>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <span class="alert-icon">🔐</span>
+                <div>
+                    <strong>Sécurité :</strong> Le message contenant ta clé privée est <strong>automatiquement supprimé</strong> après réception pour protéger tes informations.
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">13</span>
+                <div class="step-content">
+                    <h4>Donner un nom à ton compte</h4>
+                    <p>Exemple : "Mon compte Lighter principal" ou "Trading Botlyz"</p>
+                </div>
+            </div>
+
+            <p>✅ <strong>Ton compte Lighter est maintenant connecté à Botlyz !</strong></p>
+        </section>
+
+        <!-- Étape 9: Configurer stratégie -->
+        <section class="section" id="etape9">
+            <h2>Étape 9 — Configurer ta stratégie de trading</h2>
+            <p>Après avoir connecté ton compte Lighter, le bot te propose de choisir une stratégie de trading.</p>
+
+            <h3>9.1 Choisir une stratégie</h3>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h4>σ SIGMA wFSL</h4>
+                    <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-bottom: 1rem;">5 paires de trading</p>
+                    <ul>
+                        <li>HYPE, YZY, MYX, ASTER, PUMP</li>
+                        <li>Diversification maximale</li>
+                        <li>Pour les comptes plus importants</li>
+                    </ul>
+                </div>
+                <div class="comparison-card highlighted">
+                    <h4>σ SIGMA Mini wFSL</h4>
+                    <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-bottom: 1rem;">4 paires de trading</p>
+                    <ul>
+                        <li>HYPE, YZY, ASTER, PUMP</li>
+                        <li>Capital minimum plus faible</li>
+                        <li><span class="check">✓</span> Recommandé pour débuter</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>9.2 Configurer le levier</h3>
+            <p>Le levier multiplie ta capacité de trading (et les risques).</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <tr>
+                        <th>Levier</th>
+                        <th>Risque</th>
+                        <th>Recommandation</th>
+                    </tr>
+                    <tr>
+                        <td>1x</td>
+                        <td>Faible</td>
+                        <td>Ultra-conservateur</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2x</strong></td>
+                        <td>Modéré</td>
+                        <td><span class="check">✓</span> <strong>Recommandé pour débuter</strong></td>
+                    </tr>
+                    <tr>
+                        <td>3x</td>
+                        <td>Élevé</td>
+                        <td>Expérimenté</td>
+                    </tr>
+                    <tr>
+                        <td>4x-5x</td>
+                        <td>Très élevé</td>
+                        <td>Traders confirmés uniquement</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="alert alert-warning">
+                <span class="alert-icon">⚠️</span>
+                <div>
+                    <strong>Attention :</strong> Un levier plus élevé = gains potentiels plus importants MAIS aussi pertes potentielles plus importantes. Commence avec un levier faible (2x) et ajuste selon ton expérience.
+                </div>
+            </div>
+
+            <h3>9.3 Configurer l'allocation</h3>
+            <p>L'allocation détermine quel pourcentage de ton capital est utilisé pour cette stratégie.</p>
+
+            <ul class="list">
+                <li><strong>100%</strong> : Tout ton capital Lighter est utilisé</li>
+                <li><strong>50%</strong> : La moitié de ton capital (permet d'avoir plusieurs stratégies)</li>
+                <li><strong>25%</strong> : Un quart de ton capital</li>
+            </ul>
+
+            <div class="step">
+                <span class="step-number">→</span>
+                <div class="step-content">
+                    <h4>Donner un nom à ta stratégie</h4>
+                    <p>Exemple : "SIGMA_lighter_2x" ou "Ma stratégie principale"</p>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <span class="alert-icon">🎉</span>
+                <div>
+                    <strong>C'est fait !</strong> Ta stratégie est installée et commencera à trader automatiquement. Tu recevras des notifications pour chaque trade.
+                </div>
+            </div>
+        </section>
+
+        <!-- Backtest -->
+        <section class="section" id="backtest">
+            <h2>📊 Backtester avant de trader (recommandé)</h2>
+            <p>Avant de lancer une stratégie en réel, tu peux utiliser la fonction <strong>Backtest</strong> pour simuler ses performances sur des données historiques.</p>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">📈</div>
+                    <span class="card-title">Qu'est-ce qu'un backtest ?</span>
+                </div>
+                <p>Un backtest simule comment une stratégie aurait performé dans le passé. Ça te permet de :</p>
+                <ul class="list list-check">
+                    <li>Voir les performances historiques</li>
+                    <li>Tester différents leviers</li>
+                    <li>Comparer les stratégies entre elles</li>
+                    <li>Ajuster tes paramètres avant de risquer de l'argent réel</li>
+                </ul>
+            </div>
+
+            <h3>Comment lancer un backtest ?</h3>
+
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-content">
+                    <h4>Menu principal → "📊 Backtest"</h4>
+                    <p>Accède à la fonction de backtesting</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-content">
+                    <h4>Choisir l'exchange et la stratégie</h4>
+                    <p>Sélectionne Lighter et la stratégie que tu veux tester</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <div class="step-content">
+                    <h4>Configurer les paramètres</h4>
+                    <p>Dates de début/fin, capital de départ, levier</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">4</span>
+                <div class="step-content">
+                    <h4>Analyser les résultats</h4>
+                    <p>Le bot génère un rapport avec : rendement, drawdown max, nombre de trades, etc.</p>
+                </div>
+            </div>
+
+            <div class="alert alert-info">
+                <span class="alert-icon">💡</span>
+                <div>
+                    <strong>Conseil :</strong> Les performances passées ne garantissent pas les performances futures, mais le backtest te donne une bonne idée du comportement de la stratégie dans différentes conditions de marché.
+                </div>
+            </div>
+        </section>
+
         <!-- Checklist -->
         <section class="section" id="checklist">
             <h2>📋 Checklist finale</h2>
 
             <div class="checklist">
-                <h3>Installation</h3>
+                <h3>Installation Phantom</h3>
                 <div class="checklist-item"><span class="checkbox"></span> Phantom installé sur Chrome</div>
                 <div class="checklist-item"><span class="checkbox"></span> Wallet créé</div>
                 <div class="checklist-item"><span class="checkbox"></span> Seed phrase notée sur papier</div>
@@ -1503,14 +1894,24 @@ bridge castle garden sunset dream</div>
                 <div class="checklist-item"><span class="checkbox"></span> USDC reçus sur Base (ton montant de trading)</div>
                 <div class="checklist-item"><span class="checkbox"></span> ~5$ ETH reçus sur Base</div>
 
-                <h3 style="margin-top: 1.5rem;">Lighter</h3>
+                <h3 style="margin-top: 1.5rem;">Lighter DEX</h3>
                 <div class="checklist-item"><span class="checkbox"></span> Connecté via le lien parrainage</div>
                 <div class="checklist-item"><span class="checkbox"></span> Authentifié (Remember Me ✓)</div>
                 <div class="checklist-item"><span class="checkbox"></span> Dépôt USDC effectué</div>
+                <div class="checklist-item"><span class="checkbox"></span> Clé API créée sur app.lighter.xyz/apikeys</div>
+                <div class="checklist-item"><span class="checkbox"></span> API Private Key copiée et sauvegardée</div>
+
+                <h3 style="margin-top: 1.5rem;">Botlyz</h3>
+                <div class="checklist-item"><span class="checkbox"></span> Compte créé sur @BotlyzBot</div>
+                <div class="checklist-item"><span class="checkbox"></span> Carte bancaire ajoutée (via Stripe)</div>
+                <div class="checklist-item"><span class="checkbox"></span> Compte Lighter connecté ("🔧 Gérer mes exchanges")</div>
+                <div class="checklist-item"><span class="checkbox"></span> Stratégie configurée (σ SIGMA Mini ou Full)</div>
+                <div class="checklist-item"><span class="checkbox"></span> Levier et allocation définis</div>
 
                 <h3 style="margin-top: 1.5rem;">Bonus</h3>
                 <div class="checklist-item"><span class="checkbox"></span> Crédit 20$ réclamé (@botlyz_manager)</div>
                 <div class="checklist-item"><span class="checkbox"></span> (Optionnel) Téléphone lié via "Link Mobile Device"</div>
+                <div class="checklist-item"><span class="checkbox"></span> (Optionnel) Backtest effectué avant de trader</div>
             </div>
         </section>
 

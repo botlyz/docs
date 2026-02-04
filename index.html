@@ -1454,7 +1454,7 @@
                 <a href="#etape1"><span class="toc-number">3</span> Installer MetaMask</a>
                 <a href="#etape2"><span class="toc-number">4</span> Approvisionner</a>
                 <a href="#etape3"><span class="toc-number">5</span> Connexion Lighter</a>
-                <a href="#etape4"><span class="toc-number">6</span> Déposer ETH + Swap</a>
+                <a href="#etape4"><span class="toc-number">6</span> Swap + Dépôt USDC</a>
                 <a href="#etape5"><span class="toc-number">7</span> Authentification API</a>
                 <a href="#etape6"><span class="toc-number">8</span> Generate API Key</a>
                 <a href="#etape7"><span class="toc-number">9</span> Connecter à Botlyz</a>
@@ -1801,7 +1801,7 @@ bridge castle garden sunset dream</div>
                 <li>Même adresse que sur Ethereum (commence par <code>0x</code>)</li>
                 <li>Écosystème DeFi le plus développé des Layer 2</li>
             </ul>
-            <p><strong>Logo :</strong> losange bleu 🔷</p>
+            <p><strong>Logo :</strong> icône bleue 🔷</p>
 
             <div class="alert alert-warning">
                 <span class="alert-icon">⚠️</span>
@@ -1813,17 +1813,25 @@ bridge castle garden sunset dream</div>
         <section class="section" id="avant">
             <h2>🚀 Avant de commencer</h2>
 
-            <h3>Quel est ton cas ?</h3>
-            <div class="comparison-grid">
-                <div class="comparison-card">
-                    <h4>📊 Cas 1 : Depuis un exchange</h4>
-                    <p style="color: var(--text-secondary);">Tu as déjà de la crypto sur Bybit, Binance, XT.com ou tu sais en acheter.</p>
-                    <p><strong>Méthode :</strong> Acheter sur l'exchange → Retirer vers MetaMask</p>
+            <h3>Comment acheter de la crypto ?</h3>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">📊</div>
+                    <span class="card-title">Acheter via un exchange (Binance, Bybit, etc.)</span>
                 </div>
-                <div class="comparison-card">
-                    <h4>💳 Cas 2 : Depuis zéro</h4>
-                    <p style="color: var(--text-secondary);">Tu n'as jamais acheté de crypto, tu pars de ta carte bancaire.</p>
-                    <p><strong>Méthode :</strong> Acheter directement dans MetaMask par carte</p>
+                <p>La méthode recommandée :</p>
+                <ul class="list">
+                    <li>Acheter de l'ETH sur un exchange centralisé (Binance, Bybit, Coinbase, Kraken...)</li>
+                    <li>Retirer vers ton wallet MetaMask sur le réseau <strong>Arbitrum</strong></li>
+                    <li>Faire un swap ETH → USDC sur Arbitrum (via Uniswap)</li>
+                    <li>Déposer tes USDC sur Lighter</li>
+                </ul>
+            </div>
+
+            <div class="alert alert-info">
+                <span class="alert-icon">💡</span>
+                <div>
+                    <strong>Nouveau dans la crypto ?</strong> Crée d'abord un compte sur <a href="https://www.binance.com" target="_blank" style="color: var(--accent-primary);">Binance</a> ou <a href="https://www.bybit.com" target="_blank" style="color: var(--accent-primary);">Bybit</a>. Tu pourras y acheter de l'ETH par carte bancaire ou virement, puis le transférer vers MetaMask.
                 </div>
             </div>
 
@@ -1959,7 +1967,7 @@ bridge castle garden sunset dream</div>
         <section class="section" id="etape2">
             <h2>Étape 2 — Approvisionner ton wallet</h2>
 
-            <h3>Cas 1 — Transfert depuis un exchange</h3>
+            <h3>Retirer des ETH depuis un exchange</h3>
 
             <div class="alert alert-warning">
                 <span class="alert-icon">⚠️</span>
@@ -1999,7 +2007,7 @@ bridge castle garden sunset dream</div>
                                 <th>Action</th>
                             </tr>
                             <tr>
-                                <td>Arbitrum One (🔷 losange bleu)</td>
+                                <td>Arbitrum One (🔷 icône bleue)</td>
                                 <td><span class="check">✓</span> <strong>SÉLECTIONNER</strong></td>
                             </tr>
                             <tr>
@@ -2015,56 +2023,18 @@ bridge castle garden sunset dream</div>
                 </div>
             </div>
 
-            <div class="alert alert-info">
-                <span class="alert-icon">💡</span>
-                <div><strong>Conseil :</strong> Retire uniquement de l'<strong>ETH</strong> sur Arbitrum. Tu feras le swap ETH → USDC directement dans Lighter après le dépôt (étape 4).</div>
-            </div>
-
             <p><strong>Délai :</strong> 5-30 minutes selon l'exchange</p>
 
-            <h3>Cas 2 — Achat par carte via MetaMask</h3>
-
-            <div class="step">
-                <span class="step-number">1</span>
-                <div class="step-content">
-                    <h4>Acheter ETH sur Arbitrum</h4>
-                    <p>Dans MetaMask → "Acheter" → Sélectionner le réseau <strong>Arbitrum</strong> (🔷) → Chercher "ETH" → Entre le montant souhaité</p>
+            <div class="alert alert-warning">
+                <span class="alert-icon">⚠️</span>
+                <div>
+                    <strong>Tu peux aussi déposer directement des USDC</strong> sur ton wallet MetaMask, mais tu auras <strong>quand même besoin d'ETH</strong> (~5$) pour payer les frais de transaction (gas) lors du dépôt et du retrait sur Lighter.
                 </div>
             </div>
 
-            <div class="table-wrapper">
-                <table>
-                    <tr>
-                        <th>Fournisseur</th>
-                        <th>Frais</th>
-                        <th>Tu reçois (pour 100€)</th>
-                    </tr>
-                    <tr>
-                        <td><strong>Transak</strong></td>
-                        <td>~1%</td>
-                        <td>~99€ en ETH ✅</td>
-                    </tr>
-                    <tr>
-                        <td>MoonPay</td>
-                        <td>~4.5%</td>
-                        <td>~95.50€ en ETH</td>
-                    </tr>
-                    <tr>
-                        <td>Banxa</td>
-                        <td>~2%</td>
-                        <td>~98€ en ETH</td>
-                    </tr>
-                </table>
-            </div>
-
             <div class="alert alert-info">
                 <span class="alert-icon">💡</span>
-                <div><strong>Premier achat :</strong> Vérification d'identité (KYC) requise par le fournisseur. Durée : ~5-10 min.</div>
-            </div>
-
-            <div class="alert alert-success">
-                <span class="alert-icon">✅</span>
-                <div><strong>Processus simplifié :</strong> Tu n'as besoin que d'acheter de l'<strong>ETH</strong>. Le swap ETH → USDC se fait directement dans Lighter après le dépôt (frais très faibles sur Arbitrum).</div>
+                <div><strong>Conseil :</strong> Retire de l'<strong>ETH</strong> sur Arbitrum. Tu feras ensuite un swap ETH → USDC directement sur Arbitrum (via Uniswap ou un autre DEX) avant de déposer sur Lighter.</div>
             </div>
         </section>
 
@@ -2100,58 +2070,48 @@ bridge castle garden sunset dream</div>
             </div>
         </section>
 
-        <!-- Étape 4: Déposer ETH + Swap -->
+        <!-- Étape 4: Swap + Dépôt -->
         <section class="section" id="etape4">
-            <h2>Étape 4 — Déposer ETH + Swap vers USDC</h2>
+            <h2>Étape 4 — Swap ETH → USDC + Dépôt sur Lighter</h2>
 
             <div class="alert alert-info">
                 <span class="alert-icon">💡</span>
                 <div>
-                    <strong>Processus simplifié :</strong> Tu déposes tes ETH sur Lighter, puis tu fais un <strong>swap</strong> (échange) directement dans l'interface pour convertir une partie en USDC. Garde ~5$ en ETH pour les frais de signature.
+                    <strong>Processus :</strong> Tu fais d'abord un <strong>swap</strong> (échange) de tes ETH en USDC directement sur Arbitrum, en gardant ~5$ en ETH pour les frais de transaction. Ensuite tu déposes tes USDC sur Lighter.
                 </div>
             </div>
 
-            <h3>4.1 Déposer tes ETH</h3>
+            <h3>4.1 Swap ETH → USDC sur Arbitrum</h3>
 
             <div class="step">
                 <span class="step-number">1</span>
                 <div class="step-content">
-                    <h4>Ouvrir le dépôt</h4>
-                    <p>Sur Lighter, clique sur <strong>"Deposit"</strong> en haut à droite</p>
+                    <h4>Ouvrir un DEX pour le swap</h4>
+                    <p>Va sur <a href="https://app.uniswap.org/swap" target="_blank" style="color: var(--accent-primary); font-weight: bold;">Uniswap</a> (ou un autre DEX comme 1inch, Sushiswap...)</p>
                 </div>
             </div>
 
             <div class="step">
                 <span class="step-number">2</span>
                 <div class="step-content">
-                    <h4>Configurer le dépôt</h4>
-                    <p>Sélectionne <strong>"Deposit from connected wallet"</strong> → Token : <strong>ETH</strong> → Réseau : <strong>Arbitrum</strong> → Montant : <strong>tout ton ETH</strong></p>
+                    <h4>Connecter MetaMask</h4>
+                    <p>Clique "Connect Wallet" → MetaMask → Vérifie que tu es sur le réseau <strong>Arbitrum</strong></p>
                 </div>
             </div>
 
             <div class="step">
                 <span class="step-number">3</span>
                 <div class="step-content">
-                    <h4>Confirmer</h4>
-                    <p>Clique "Deposit" → Vérifie dans MetaMask → "Confirm"</p>
+                    <h4>Configurer le swap</h4>
+                    <p>De : <strong>ETH</strong> → Vers : <strong>USDC</strong> → Montant : <strong>tout sauf ~5$ d'ETH</strong></p>
                 </div>
             </div>
-
-            <h3>4.2 Swap ETH → USDC dans Lighter</h3>
 
             <div class="step">
                 <span class="step-number">4</span>
                 <div class="step-content">
-                    <h4>Accéder au Swap</h4>
-                    <p>Dans Lighter, va dans l'onglet <strong>"Swap"</strong> ou utilise la fonction d'échange intégrée</p>
-                </div>
-            </div>
-
-            <div class="step">
-                <span class="step-number">5</span>
-                <div class="step-content">
-                    <h4>Convertir ETH en USDC</h4>
-                    <p>Échange la majorité de tes ETH en USDC. <strong>⚠️ Garde ~5$ en ETH</strong> pour les futures signatures (frais de gas).</p>
+                    <h4>Confirmer le swap</h4>
+                    <p>Clique "Swap" → Vérifie les détails → Confirme dans MetaMask</p>
                 </div>
             </div>
 
@@ -2160,11 +2120,45 @@ bridge castle garden sunset dream</div>
                     <div class="card-icon">💰</div>
                     <span class="card-title">Exemple de répartition</span>
                 </div>
-                <p>Si tu as déposé <strong>100$ en ETH</strong> :</p>
+                <p>Si tu as reçu <strong>100$ en ETH</strong> sur ton wallet :</p>
                 <ul class="list">
                     <li>Swap <strong>~95$ d'ETH</strong> → USDC (pour trader)</li>
-                    <li>Garde <strong>~5$ d'ETH</strong> (pour les frais de signature)</li>
+                    <li>Garde <strong>~5$ d'ETH</strong> (pour les frais de dépôt et retrait)</li>
                 </ul>
+            </div>
+
+            <div class="alert alert-warning">
+                <span class="alert-icon">⚠️</span>
+                <div>
+                    <strong>Pourquoi garder ~5$ en ETH ?</strong><br>
+                    Les transactions sur Arbitrum (dépôt et retrait sur Lighter) nécessitent de payer des frais en ETH. Sans ETH, tu ne pourras pas envoyer tes USDC vers Lighter !
+                </div>
+            </div>
+
+            <h3>4.2 Déposer tes USDC sur Lighter</h3>
+
+            <div class="step">
+                <span class="step-number">5</span>
+                <div class="step-content">
+                    <h4>Ouvrir le dépôt</h4>
+                    <p>Sur Lighter, clique sur <strong>"Deposit"</strong> en haut à droite</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">6</span>
+                <div class="step-content">
+                    <h4>Configurer le dépôt</h4>
+                    <p>Sélectionne <strong>"Deposit from connected wallet"</strong> → Token : <strong>USDC</strong> → Réseau : <strong>Arbitrum</strong> → Montant : <strong>tout tes USDC</strong></p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">7</span>
+                <div class="step-content">
+                    <h4>Confirmer</h4>
+                    <p>Clique "Deposit" → Vérifie dans MetaMask → "Confirm"</p>
+                </div>
             </div>
 
             <div class="diagram">
@@ -2175,14 +2169,14 @@ bridge castle garden sunset dream</div>
                         <div class="diagram-label">ETH sur Arbitrum</div>
                     </div>
                     <span class="diagram-arrow">→</span>
-                    <div class="diagram-box highlight">
-                        <div>⚡ Lighter</div>
-                        <div class="diagram-label">Dépôt ETH</div>
+                    <div class="diagram-box">
+                        <div>🔄 Uniswap</div>
+                        <div class="diagram-label">Swap ETH → USDC</div>
                     </div>
                     <span class="diagram-arrow">→</span>
-                    <div class="diagram-box">
-                        <div>💵 USDC</div>
-                        <div class="diagram-label">Swap interne</div>
+                    <div class="diagram-box highlight">
+                        <div>⚡ Lighter</div>
+                        <div class="diagram-label">Dépôt USDC</div>
                     </div>
                 </div>
             </div>
@@ -2190,7 +2184,7 @@ bridge castle garden sunset dream</div>
             <div class="alert alert-success">
                 <span class="alert-icon">✅</span>
                 <div>
-                    <strong>Tes fonds sont prêts !</strong> Tu as maintenant des USDC pour trader et un peu d'ETH pour les signatures.
+                    <strong>Tes fonds sont prêts !</strong> Tu as maintenant des USDC sur Lighter pour trader, et un peu d'ETH sur MetaMask pour les futures transactions.
                 </div>
             </div>
         </section>
@@ -2736,7 +2730,8 @@ bridge castle garden sunset dream</div>
                 <h3 style="margin-top: 1.5rem;">Lighter DEX</h3>
                 <div class="checklist-item"><span class="checkbox"></span> Connecté via le lien parrainage</div>
                 <div class="checklist-item"><span class="checkbox"></span> Authentifié (Remember Me ✓)</div>
-                <div class="checklist-item"><span class="checkbox"></span> Dépôt ETH effectué + swap vers USDC dans Lighter</div>
+                <div class="checklist-item"><span class="checkbox"></span> Swap ETH → USDC effectué sur Arbitrum (garder ~5$ ETH)</div>
+                <div class="checklist-item"><span class="checkbox"></span> Dépôt USDC effectué sur Lighter</div>
                 <div class="checklist-item"><span class="checkbox"></span> Clé API créée sur app.lighter.xyz/apikeys</div>
                 <div class="checklist-item"><span class="checkbox"></span> API Private Key copiée et sauvegardée</div>
 
@@ -2842,38 +2837,31 @@ bridge castle garden sunset dream</div>
                 <table>
                     <tr>
                         <th>Étape</th>
-                        <th>Cas 1 (Exchange)</th>
-                        <th>Cas 2 (Carte via MetaMask)</th>
+                        <th>Coût estimé</th>
                     </tr>
                     <tr>
                         <td>Installer MetaMask</td>
                         <td>Gratuit</td>
-                        <td>Gratuit</td>
                     </tr>
                     <tr>
-                        <td>Acheter ETH sur Arbitrum</td>
+                        <td>Acheter ETH sur un exchange (Binance, etc.)</td>
                         <td>Frais exchange (~0.1-1%)</td>
-                        <td>1-4.5% de frais selon fournisseur</td>
                     </tr>
                     <tr>
-                        <td>Retrait vers MetaMask</td>
+                        <td>Retrait ETH vers MetaMask (réseau Arbitrum)</td>
                         <td>Frais retrait (~0.5-2$)</td>
-                        <td>— (déjà dans MetaMask)</td>
                     </tr>
                     <tr>
-                        <td>Dépôt ETH sur Lighter</td>
-                        <td>~0.05$ gas</td>
-                        <td>~0.05$ gas</td>
+                        <td>Swap ETH → USDC sur Arbitrum (Uniswap)</td>
+                        <td>~0.10-0.30$ (gas + frais swap)</td>
                     </tr>
                     <tr>
-                        <td>Swap ETH → USDC dans Lighter</td>
-                        <td>~0.05$ (frais de swap)</td>
-                        <td>~0.05$ (frais de swap)</td>
+                        <td>Dépôt USDC sur Lighter</td>
+                        <td>~0.05$ gas</td>
                     </tr>
                     <tr style="background: var(--bg-tertiary); font-weight: 600;">
                         <td>Total estimé</td>
                         <td>Montant + ~3-5$ de frais</td>
-                        <td>Montant + ~5-10$ de frais</td>
                     </tr>
                 </table>
             </div>
@@ -3016,7 +3004,7 @@ bridge castle garden sunset dream</div>
             </a>
             <a href="#etape4" class="progress-section-item" data-section="etape4">
                 <span class="progress-section-dot"></span>
-                <span>6. Déposer + Swap</span>
+                <span>6. Swap + Dépôt</span>
             </a>
             <a href="#etape5" class="progress-section-item" data-section="etape5">
                 <span class="progress-section-dot"></span>

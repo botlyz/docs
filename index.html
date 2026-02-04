@@ -191,6 +191,23 @@
             font-size: 1rem;
         }
 
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        /* Nav button - stronger glow like botlyz.com */
+        .nav-links .btn {
+            font-weight: 700;
+            box-shadow: 0 4px 16px rgba(0, 212, 255, 0.4);
+        }
+
+        .nav-links .btn:hover {
+            box-shadow:
+                0 8px 24px rgba(0, 212, 255, 0.5),
+                0 0 40px rgba(0, 212, 255, 0.3);
+        }
+
         /* Hero */
         .hero {
             padding: 140px 1.5rem 80px;
@@ -1266,7 +1283,7 @@
             <div class="nav-links">
                 <a href="https://botlyz.com">Site principal</a>
                 <a href="#toc">Sommaire</a>
-                <a href="https://t.me/BotlyzBot" class="btn btn-primary">Démarrer →</a>
+                <a href="https://t.me/BotlyzBot" target="_blank" class="btn btn-primary btn-small">Essayer gratuitement</a>
             </div>
         </div>
     </nav>

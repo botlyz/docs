@@ -676,7 +676,33 @@ Après la connexion, Lighter affiche un écran d'authentification :
 
 5. Clique sur **"Sign"** dans Phantom
 
-6. Ton compte Lighter est maintenant actif ✅
+6. **Lighter te demande de choisir ton type de compte :**
+
+   ```
+   ┌──────────────────────────────────────┐
+   │        Choose your account           │
+   │                                      │
+   │  ┌────────────────────────────────┐  │
+   │  │  FREE                          │  │
+   │  │  0% Maker / 0% Taker           │  │
+   │  └────────────────────────────────┘  │
+   │                                      │
+   │  ┌────────────────────────────────┐  │
+   │  │  PREMIUM                       │  │
+   │  │  Frais réduits + avantages     │  │
+   │  └────────────────────────────────┘  │
+   └──────────────────────────────────────┘
+   ```
+
+   ### ✅ Sélectionne **"FREE"** (compte gratuit)
+
+   - **0% de frais Maker** (quand tu places un ordre limit)
+   - **0% de frais Taker** (quand tu prends un ordre existant)
+   - C'est le choix optimal pour Botlyz
+
+   > 💡 Le compte Premium n'apporte aucun avantage supplémentaire pour l'utilisation avec Botlyz. Reste sur le compte **FREE**.
+
+7. Ton compte Lighter est maintenant actif ✅
 
 ---
 
@@ -836,6 +862,7 @@ Coche chaque étape une fois complétée :
 - [ ] Authentifié avec :
   - [ ] "Remember Me" ✅ coché
   - [ ] "multi-sig/smart wallet" ❌ NON coché
+- [ ] Type de compte : **FREE** sélectionné (0% frais maker/taker)
 - [ ] Dépôt effectué : USDC (Perps) depuis Base
 
 **Bonus**

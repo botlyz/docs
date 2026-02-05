@@ -2377,13 +2377,11 @@ bridge castle garden sunset dream</div>
                 </div>
             </div>
 
-            <p>Maintenant que tu es authentifié, tu peux générer ta clé API pour Botlyz.</p>
-
             <div class="step">
                 <span class="step-number">1</span>
                 <div class="step-content">
-                    <h4>Cliquer sur "Generate API Key"</h4>
-                    <p>Dans l'onglet API (<a href="https://app.lighter.xyz/apikeys" target="_blank" style="color: var(--accent-primary);">app.lighter.xyz/apikeys</a>), clique sur le bouton <strong>"Generate API Key"</strong></p>
+                    <h4>Générer la clé API</h4>
+                    <p>Dans l'onglet API (<a href="https://app.lighter.xyz/apikeys" target="_blank" style="color: var(--accent-primary);">app.lighter.xyz/apikeys</a>), clique sur <strong>"Generate API Key"</strong></p>
                 </div>
             </div>
 
@@ -2391,58 +2389,13 @@ bridge castle garden sunset dream</div>
                 <span class="step-number">2</span>
                 <div class="step-content">
                     <h4>Entrer l'index : <code>2</code></h4>
-                    <p>Lighter va te demander un <strong>index</strong>. Entre <strong>2</strong> puis valide.</p>
-                    <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-top: 0.5rem;">💡 Les index 0 et 1 sont réservés par Lighter pour l'interface web et mobile.</p>
+                    <p>Lighter te demande un index → Entre <strong>2</strong> puis valide.</p>
+                    <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-top: 0.5rem;">Les index 0-1 sont réservés par Lighter. Pour une 2ème clé ce sera 3, etc.</p>
                 </div>
             </div>
 
-            <h3>6.1 Ce que Botlyz va te demander</h3>
-            <p>Quand tu connecteras Lighter à Botlyz, le bot te demandera <strong>3 informations</strong> :</p>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">🔑</div>
-                    <span class="card-title">Les 3 informations à fournir à Botlyz</span>
-                </div>
-                <div class="table-wrapper">
-                    <table>
-                        <tr>
-                            <th>Botlyz demande</th>
-                            <th>Ce que tu dois entrer</th>
-                            <th>Où le trouver</th>
-                        </tr>
-                        <tr>
-                            <td><strong>Index</strong></td>
-                            <td>Entre <strong>2</strong></td>
-                            <td>C'est toujours 2 pour la première clé</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Clé publique Ethereum</strong></td>
-                            <td>Ton adresse ETH <code>0x...</code></td>
-                            <td>L'adresse de ton wallet MetaMask où tu as envoyé tes fonds</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Clé privée Lighter</strong></td>
-                            <td>La clé API générée par Lighter</td>
-                            <td>Affichée après "Generate API Key" (⚠️ PAS ta seed phrase !)</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-
-            <div class="alert alert-danger">
-                <span class="alert-icon">🚨</span>
-                <div>
-                    <strong>ATTENTION - NE PAS CONFONDRE :</strong>
-                    <ul class="list">
-                        <li><strong>Clé privée Lighter</strong> = la clé API générée par Lighter (longue chaîne hexadécimale) → À DONNER à Botlyz ✅</li>
-                        <li><strong>Seed phrase / Secret Recovery Phrase</strong> = tes 12 mots secrets → NE JAMAIS DONNER à personne ❌</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3>6.2 Noter les informations importantes</h3>
-            <p>Une fois la clé créée, tu verras <strong>3 informations essentielles</strong> :</p>
+            <h3>6.1 Copier les informations</h3>
+            <p>Une fois la clé créée, Lighter affiche <strong>3 informations</strong>. Note-les précieusement :</p>
 
             <div class="card">
                 <div class="card-header">
@@ -2458,17 +2411,17 @@ bridge castle garden sunset dream</div>
                         </tr>
                         <tr>
                             <td><strong>ETH Address</strong></td>
-                            <td>Ton adresse de wallet (déjà connue)</td>
+                            <td>Ton adresse de wallet MetaMask</td>
                             <td><code>0xc9D0...6cA3</code></td>
                         </tr>
                         <tr>
                             <td><strong>API Key Index</strong></td>
-                            <td>L'index de ta clé (généralement <strong>2</strong> pour la première clé)</td>
+                            <td>L'index que tu as entré</td>
                             <td><code>2</code></td>
                         </tr>
                         <tr>
                             <td><strong>API Private Key</strong></td>
-                            <td>La clé privée générée (à garder secrète)</td>
+                            <td>La clé privée générée <strong>(à garder secrète !)</strong></td>
                             <td><code>2a797070cb0e...b349000bf1fa</code></td>
                         </tr>
                     </table>
@@ -2478,20 +2431,48 @@ bridge castle garden sunset dream</div>
             <div class="alert alert-danger">
                 <span class="alert-icon">⚠️</span>
                 <div>
-                    <strong>IMPORTANT :</strong>
-                    <ul class="list list-cross">
-                        <li>La <strong>API Private Key</strong> n'est affichée qu'<strong>une seule fois</strong></li>
-                        <li>Copie-la immédiatement dans un endroit sûr</li>
-                        <li>Si tu la perds, tu devras créer une nouvelle clé</li>
-                    </ul>
+                    <strong>IMPORTANT :</strong> La <strong>API Private Key</strong> n'est affichée qu'<strong>une seule fois</strong> ! Copie-la immédiatement. Si tu la perds, tu devras créer une nouvelle clé.
                 </div>
             </div>
 
-            <div class="alert alert-info">
-                <span class="alert-icon">💡</span>
+            <h3>6.2 Ce que Botlyz va te demander</h3>
+            <p>Quand tu connecteras Lighter à Botlyz (étape suivante), le bot te demandera ces <strong>3 informations</strong> :</p>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🔑</div>
+                    <span class="card-title">Les 3 infos à fournir à Botlyz</span>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <tr>
+                            <th>Botlyz demande</th>
+                            <th>Tu entres</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Index</strong></td>
+                            <td><code>2</code> (l'index de ta clé)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Clé publique Ethereum</strong></td>
+                            <td>Ton adresse ETH <code>0x...</code> (de MetaMask)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Clé privée Lighter</strong></td>
+                            <td>L'API Private Key que tu viens de copier</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="alert alert-danger">
+                <span class="alert-icon">🚨</span>
                 <div>
-                    <strong>Pourquoi l'index 2 ?</strong><br>
-                    Sur Lighter, les index 0 et 1 sont réservés pour des usages système. Le premier index utilisable pour les clés API est <strong>2</strong>. Si tu crées une deuxième clé, elle aura l'index 3, etc.
+                    <strong>NE PAS CONFONDRE :</strong>
+                    <ul class="list">
+                        <li><strong>Clé privée Lighter (API Key)</strong> = longue chaîne hexadécimale générée par Lighter → <strong>À donner à Botlyz ✅</strong></li>
+                        <li><strong>Seed phrase (12 mots)</strong> = tes mots secrets MetaMask → <strong>NE JAMAIS DONNER ❌</strong></li>
+                    </ul>
                 </div>
             </div>
 
@@ -2499,13 +2480,8 @@ bridge castle garden sunset dream</div>
                 <span class="alert-icon">🔐</span>
                 <div>
                     <strong>SÉCURITÉ — Botlyz ne peut PAS retirer tes fonds</strong><br><br>
-                    Selon la <a href="https://apidocs.lighter.xyz/docs/api-keys" target="_blank" style="color: var(--accent-primary); font-weight: bold;">documentation officielle Lighter</a> :
-                    <br><br>
-                    <em>"While it allows to process withdrawals, only secure withdrawals can be executed without the account's Ethereum private key — as they can only be sent to the same L1 address that created the account."</em>
-                    <br><br>
-                    <strong>Traduction :</strong> Les clés API permettent des retraits, MAIS uniquement vers <strong>ta propre adresse</strong> (celle qui a créé le compte). Pour retirer vers une autre adresse, il faut ta <strong>clé privée Ethereum</strong> — que tu ne donnes JAMAIS à Botlyz.
-                    <br><br>
-                    ✅ <strong>Résultat :</strong> Sans ta clé privée ETH, Botlyz ne peut pas retirer tes fonds vers son adresse. Tes actifs restent 100% sous ton contrôle.
+                    Selon la <a href="https://apidocs.lighter.xyz/docs/api-keys" target="_blank" style="color: var(--accent-primary); font-weight: bold;">documentation officielle Lighter</a>, les clés API permettent des retraits uniquement vers <strong>ta propre adresse</strong> (celle qui a créé le compte).<br><br>
+                    ✅ <strong>Résultat :</strong> Sans ta clé privée ETH (que tu ne donnes jamais), Botlyz ne peut pas retirer tes fonds. Tes actifs restent 100% sous ton contrôle.
                 </div>
             </div>
         </section>

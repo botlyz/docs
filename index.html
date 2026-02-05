@@ -2137,52 +2137,84 @@ bridge castle garden sunset dream</div>
 
             <div class="alert alert-success">
                 <span class="alert-icon">✅</span>
-                <div><strong>Tes ETH sont arrivés ?</strong> Parfait ! On va maintenant les convertir en USDC pour pouvoir trader sur Lighter.</div>
-            </div>
-
-            <div class="comparison-grid">
-                <div class="comparison-card highlighted">
-                    <h4>🦊 Méthode simple : Swap dans MetaMask</h4>
-                    <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-bottom: 1rem;">Recommandé pour les débutants</p>
-                    <ol style="margin: 0; padding-left: 1.25rem;">
-                        <li>Ouvre <strong>MetaMask</strong> (extension navigateur)</li>
-                        <li>Clique sur <strong>"Swap"</strong> (bouton au centre de l'écran)</li>
-                        <li>Sélectionne tes <strong>ETH</strong> comme token source</li>
-                        <li>Choisis <strong>USDC</strong> comme token de destination</li>
-                        <li>Entre ton montant <strong>moins ~5$</strong> (garde 5$ en ETH pour les frais)</li>
-                        <li>Clique "Swap" → Vérifie le résumé → Confirme</li>
-                    </ol>
-                </div>
-                <div class="comparison-card">
-                    <h4>🔄 Méthode avancée : DEX externe</h4>
-                    <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-bottom: 1rem;">Pour utilisateurs expérimentés</p>
-                    <ol style="margin: 0; padding-left: 1.25rem;">
-                        <li>Va sur <a href="https://app.uniswap.org/swap" target="_blank" style="color: var(--accent-primary);">Uniswap</a>, 1inch, ou Sushiswap</li>
-                        <li>Connecte ton wallet MetaMask</li>
-                        <li>Vérifie que tu es sur <strong>Arbitrum</strong></li>
-                        <li>Configure le swap ETH → USDC</li>
-                        <li>Confirme la transaction</li>
-                    </ol>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">💰</div>
-                    <span class="card-title">Exemple de répartition</span>
-                </div>
-                <p>Si tu as reçu <strong>100$ en ETH</strong> sur ton wallet :</p>
-                <ul class="list">
-                    <li>Swap <strong>~95$ d'ETH</strong> → USDC (pour trader)</li>
-                    <li>Garde <strong>~5$ d'ETH</strong> (pour les frais de dépôt et retrait)</li>
-                </ul>
+                <div><strong>Tes ETH sont arrivés sur Arbitrum ?</strong> Parfait ! On va maintenant les convertir en USDC pour pouvoir trader sur Lighter.</div>
             </div>
 
             <div class="alert alert-warning">
                 <span class="alert-icon">⚠️</span>
                 <div>
-                    <strong>Pourquoi garder ~5$ en ETH ?</strong><br>
-                    Les transactions sur Arbitrum (dépôt et retrait sur Lighter) nécessitent de payer des frais en ETH. Sans ETH, tu ne pourras pas envoyer tes USDC vers Lighter !
+                    <strong>IMPORTANT : Garde ~5$ en ETH pour les frais !</strong><br>
+                    Avant de swap, <strong>ne convertis PAS tous tes ETH</strong>. Les transactions sur Arbitrum (dépôt, retrait, trading) nécessitent de payer des frais en ETH. Ces ~5$ te permettront d'effectuer <strong>des centaines de transactions</strong> sur Lighter.
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 1.5rem;">
+                <div class="card-header">
+                    <div class="card-icon">💡</div>
+                    <span class="card-title">Bonne nouvelle pour plus tard</span>
+                </div>
+                <p>Une fois ton compte Lighter actif, tu pourras déposer <strong>directement des USDC</strong> depuis ton exchange (Binance/Bybit → USDC sur Arbitrum). Plus besoin de passer par ETH !</p>
+            </div>
+
+            <div class="card highlighted" style="margin-top: 1.5rem;">
+                <div class="card-header">
+                    <div class="card-icon">🔄</div>
+                    <span class="card-title">Swap via Jumper Exchange</span>
+                </div>
+                <p>Nous avons préparé un <strong>lien préconfiguré</strong> qui sélectionne automatiquement :</p>
+                <ul class="list" style="margin: 1rem 0;">
+                    <li>✅ Réseau : <strong>Arbitrum</strong></li>
+                    <li>✅ Token source : <strong>ETH</strong></li>
+                    <li>✅ Token destination : <strong>USDC</strong></li>
+                </ul>
+                <a href="https://jumper.exchange/fr?fromChain=42161&fromToken=0x0000000000000000000000000000000000000000&toChain=42161&toToken=0xaf88d065e77c8cC2239327C5EDb3A432268e5831" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-block; margin: 1rem 0; text-decoration: none;">
+                    👉 Ouvrir Jumper Exchange (ETH → USDC)
+                </a>
+            </div>
+
+            <div class="card" style="margin-top: 1.5rem;">
+                <div class="card-header">
+                    <div class="card-icon">📝</div>
+                    <span class="card-title">Étapes du swap</span>
+                </div>
+                <ol style="margin: 0; padding-left: 1.25rem;">
+                    <li><strong>Clique sur le lien</strong> ci-dessus → Jumper s'ouvre avec tout préconfiguré</li>
+                    <li><strong>Connecte ton wallet MetaMask</strong> (bouton en haut à droite)</li>
+                    <li><strong>Entre ton montant d'ETH</strong> à échanger<br>
+                        <span style="color: var(--warning);">⚠️ Calcul important : <code>Ton solde ETH - 5$</code> = montant à swap</span>
+                    </li>
+                    <li><strong>Vérifie le résumé</strong> (taux, frais, montant USDC reçu)</li>
+                    <li><strong>Clique "Swap"</strong> → Confirme dans MetaMask</li>
+                </ol>
+            </div>
+
+            <div class="card" style="margin-top: 1.5rem;">
+                <div class="card-header">
+                    <div class="card-icon">💰</div>
+                    <span class="card-title">Exemple concret</span>
+                </div>
+                <table class="styled-table" style="margin-top: 1rem;">
+                    <thead>
+                        <tr>
+                            <th>Tu as reçu</th>
+                            <th>Tu swap</th>
+                            <th>Tu gardes en ETH</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>100$ d'ETH</td><td>~95$ → USDC</td><td>~5$</td></tr>
+                        <tr><td>500$ d'ETH</td><td>~495$ → USDC</td><td>~5$</td></tr>
+                        <tr><td>1000$ d'ETH</td><td>~995$ → USDC</td><td>~5$</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="alert alert-success" style="margin-top: 1.5rem;">
+                <span class="alert-icon">✅</span>
+                <div>
+                    <strong>Vérification :</strong> Après le swap, dans MetaMask tu devrais voir :<br>
+                    • <strong>USDC</strong> : Le montant swappé (ex: ~95 USDC)<br>
+                    • <strong>ETH</strong> : ~5$ restants pour les frais
                 </div>
             </div>
 
